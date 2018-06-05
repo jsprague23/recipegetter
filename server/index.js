@@ -24,6 +24,8 @@ app.use(cors(corsOptions))
 
 
 
+
+
 //Catch All
 app.get('*', (req, res, next)=>{
   res.status(404).send({error: 'No matching routes'})
