@@ -11,6 +11,9 @@ var baseUrl = production ? '//herokuapp.com/' : '//localhost:3000';
 var foodApi = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes'
 
 var genRecipeSearch = axios.create({
+    headers: {
+        "X-Mashape-Key" : "WUU1lLesMimshTMLlxjAtkQGQMk6p1JQPB5jsnLPJCHfNJbugE"
+    },
     baseURL: foodApi + '/search?query=',
     timeout: 3000
 })
@@ -36,7 +39,8 @@ export default new vuex.Store({
         activeRecipe: {},
         groceryList: [],
         searchHistory: [],
-        favorites: []
+        favorites: [],
+        pantry: []
 
     },
     mutations: {
@@ -59,34 +63,41 @@ export default new vuex.Store({
 
     actions: {
 
-        getRecipes({ dispatch, commit }, query) {
-            spoonacularApi.get(query)
-                .then(res => {
-                    var foodList = res.data.results.map(recipe => {
-                        return {
-                            title: recipe.title,
-                            image: recipe.image,
-                            minutesReady: recipe.readyInMinutes,
-                            sourceUrl: recipe.source.Url,
-                            instructions: recipe.instructions,
-                            ingredients: recipe.extendedIngredients,
-                            spoonId: recipe.id
-                        }
-                    })
-                })
-        },
+        // RecipesGeneral({ dispatch, commit }, query) {
+        //     genRecipeSearch.get(query)
+        //         .then(res => {
+        //             var foodList = res.data.results.map(recipe => {
+        //                 return {
+        //                     title: recipe.title,
+        //                     image: recipe.image,
+        //                     minutesReady: recipe.readyInMinutes,
+        //                     sourceUrl: recipe.source.Url,
+        //                     instructions: recipe.instructions,
+        //                     ingredients: recipe.extendedIngredients,
+        //                     spoonId: recipe.id
+        //                 }
+        //             })
+        //         })
+        // },
         getSearchResults({dispatch, commit}, query) {
             genRecipeSearch.get(query + '&number=10')
             .then(res=>{
+                var foodList = res.data.results.map(recipe => {
+                    return {
+                        title: recipe.title,
+                        image: recipe.image,
+                        minutesReady: recipe.readyInMinutes,
+                        sourceUrl: recipe.sourceUrl,
+                        instructions: recipe.instructions,
+                        ingredients: recipe.extendedIngredients,
+                        spoonId: recipe.id
+                    }
+                })
                 console.log(res)
                 dispatch('setRecipes')
             })
         },
-        goToSearchField({disparch, commit}, ){
-            router.push({ name: 'SearchResults'
-         })
-        },
-
+    
         //AUTH STUFF
         login({ commit, dispatch }, loginCredentials) {
             auth.post('/login', loginCredentials)

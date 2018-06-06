@@ -1,11 +1,7 @@
 <template>
   <div class="searchresults">
-
-<GeneralSearchResults></GeneralSearchResults>
-
-<IngredientSearchResults></IngredientSearchResults>
-
-
+    <GeneralSearchResults></GeneralSearchResults>
+    <IngredientSearchResults></IngredientSearchResults>
   </div>
 </template>
 
