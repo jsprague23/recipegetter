@@ -1,10 +1,10 @@
 var mongoose = require('mongoose')
-var ObjectId = Schema.Types.ObjectId
 var Schema = mongoose.Schema
+var ObjectId = Schema.Types.ObjectId
 var schemaName = 'grocList'
 
 
-var itmeSchema = new Schema({
+var itemSchema = new Schema({
   ingrediantId: {type: String, required: true},
   originalString: {type: String, required: true},
   checked: {type: Boolean, default: false}
@@ -12,7 +12,7 @@ var itmeSchema = new Schema({
 var grocList = new Schema({
 title:{type: String, required: true},
 userId: {type: ObjectId, required:true},
-item: [itmeSchema]
+item: [itemSchema]
 })
 
-module.exports = mongoose.model(schemaName, schema)
+module.exports = mongoose.model(schemaName, grocList)

@@ -12,7 +12,7 @@ router.get('/api/recipes/:id', (req, res, next) => {
   })
 })
 
-//TO DO: GET SPECIFIC RESULTS
+
 
 // //EDIT
 // router.put('/api/recipes/:id', (req,res) => {

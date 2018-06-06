@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
-var ObjectId = Schema.Types.ObjectId
 var Schema = mongoose.Schema
+var ObjectId = Schema.Types.ObjectId
 var schemaName = 'Recipe'
 
 var schema = new Schema({
@@ -11,7 +11,7 @@ var schema = new Schema({
   sourceUrl: {type: String, required: true},
   extendedIngredients: {type: String, required: true},
   userId: [{type: ObjectId, ref: 'User', required: true}],
-  spoonId: {trype: String, required: true}
+  spoonId: {type: String, required: true}
 })
 
 module.exports = mongoose.model(schemaName, schema)
