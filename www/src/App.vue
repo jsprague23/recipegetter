@@ -1,6 +1,6 @@
 <template>
   <div role="navigation" id="app">
-     <navBar>This is our navBar...but i don't really have a navbar here yet..?ugh?</navBar>
+     <navBar>This is our navBar...but i don't really have a navbar here yet..?style?</navBar>
   
    <div><img src="./assets/logo.png">
     <router-view/>
@@ -9,8 +9,23 @@
 </template>
 
 <script>
+import navBar from "./components/NavBar"
+
 export default {
-  name: "App"
+  name: "App", 
+  components: {
+    navBar
+  },
+  data(){
+    return{}
+
+  },
+  computed: {
+
+  },
+  methods: {
+
+  }
 };
 </script>
 

@@ -70,10 +70,21 @@ export default new vuex.Store({
                             sourceUrl: recipe.source.Url,
                             instructions: recipe.instructions,
                             ingredients: recipe.extendedIngredients,
-                            id: recipe.id
+                            spoonId: recipe.id
                         }
                     })
                 })
+        },
+        getSearchResults({dispatch, commit}, query) {
+            genRecipeSearch.get(query + '&number=10')
+            .then(res=>{
+                console.log(res)
+                dispatch('setRecipes')
+            })
+        },
+        goToSearchField({disparch, commit}, ){
+            router.push({ name: 'SearchResults'
+         })
         },
 
         //AUTH STUFF
@@ -99,31 +110,31 @@ export default new vuex.Store({
                     console.log("Registration Successful")
                     router.push({ name: 'Home' }) // I changed this to just change the component 
                 })
+        },
+        authenticate({ commit, dispatch }) {
+            auth.get('/authenticate')
+                .then(res => {
+                    commit('setUser', res.data)
+                    router.push({ name: 'Home' })
+                })
+                .catch(res => {
+                    console.log(res.data)
+                })
+        },
+        postGrocery({ commit, dispatch }, foodItem) {
+            api.post('/thepantry', foodItem)
+                .then(res => {
+                    dispatch("getGroceries")
+                })
+                .catch(res => {
+                    alert("err")
+                })
+        },
+        getGroceries({ commit, dispatch }, user) {
+            api.get('/myPantry/' + user)
+                .then(res => {
+                    commit("setPantry", res.data)
+                })
         }
-    },
-    authenticate({ commit, dispatch }) {
-        auth.get('/authenticate')
-            .then(res => {
-                commit('setUser', res.data)
-                router.push({ name: 'Home' })
-            })
-            .catch(res => {
-                console.log(res.data)
-            })
-    }, postGrocery({ commit, dispatch }, foodItem) {
-        api.post('/thepantry', foodItem)
-            .then(res => {
-                dispatch("getGroceries")
-            })
-            .catch(res => {
-                alert("err")
-            })
-    },
-    getGroceries({ commit, dispatch }, user) {
-        api.get('/myPantry/' + user)
-            .then(res => {
-                commit("setPantry", res.data)
-            })
     }
-
 })

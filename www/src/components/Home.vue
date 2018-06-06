@@ -2,34 +2,37 @@
 <div class="container">
   <div class="Home">
     <h1>Food in Pantry? You could cook this!! </h1>
-    <input type="text" placeholder="Enter food items on hand">
-    <button class="button button1"><button type="Submit">Go</button></button>
+    <h1>Description of app here</h1>
+    <!-- <input type="text" placeholder="Enter food items on hand"> -->
+    <router-link :to="{name:'SearchResults'}">
+                 <button>GoToSearchField</button></router-link>
   </div>
   <div class="row">
-   <div class="NavBar">
-            <h3>List</h3>
-            {{music}}
-            <ol>
-              <li v-for="(item,index) in playlist" :key="index">
-                  <router-link :to="{name:'helloWorld', params: {id:index}}">
-                  <p>{{item.song_name}}</p></router-link>
-                  <p>artist: {{item.artist}}</p>
-                  <button @click="removefromlist(index)">Remove Song</button>
-              </li>
-            </ol>
-        </div>
+      
         </div>
         </div>
 </template>
 
 <script>
+import SearchResults from "./SearchResults.vue"
+
 export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Input what you have, i will tell you what to cook!'
+      
     }
-  }
+  },
+  components:{
+    SearchResults
+  },
+  computed:{},
+  methods:{
+  goToSearchField(){
+            router.push({ name: 'SearchResults'
+         })
+        },
+},
 }
 </script>
 
