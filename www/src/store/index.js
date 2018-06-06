@@ -50,7 +50,7 @@ export default new vuex.Store({
             state.groceryList=groceryList
         },
         setActiveRecipe(state, activeRecipe){
-            state.activeRecipe = activeRecipe
+            state.activeRecipe = activeRecipe 
         }
     },
 
