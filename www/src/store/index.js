@@ -48,6 +48,7 @@ export default new vuex.Store({
             state.user = user
         },
         setRecipes(state, recipes) {
+            console.log(recipes)
             state.recipes = recipes
         },
         setGroceryList(state, groceryList) {
@@ -82,11 +83,11 @@ export default new vuex.Store({
         getSearchResults({dispatch, commit}, query) {
             genRecipeSearch.get(query + '&number=10')
             .then(res=>{
-                var foodList = res.data.results.map(recipe => {
+                var recipes = res.data.results.map(recipe => {
                     return {
                         title: recipe.title,
                         image: recipe.image,
-                        minutesReady: recipe.readyInMinutes,
+                        readyInMinutes: recipe.readyInMinutes,
                         sourceUrl: recipe.sourceUrl,
                         instructions: recipe.instructions,
                         ingredients: recipe.extendedIngredients,
@@ -94,7 +95,7 @@ export default new vuex.Store({
                     }
                 })
                 console.log(res)
-                dispatch('setRecipes')
+                commit('setRecipes', res.data.results)
             })
         },
     
@@ -123,7 +124,7 @@ export default new vuex.Store({
                 })
         },
         authenticate({ commit, dispatch }) {
-            auth.get('/authenticate')
+            api.get('/authenticate')
                 .then(res => {
                     commit('setUser', res.data)
                     router.push({ name: 'Home' })
