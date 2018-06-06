@@ -4,6 +4,7 @@ import axios from 'axios'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import SearchResults from '@/components/SearchResults'
+import RecipeDetails from '@/components/RecipeDetails'
 
 Vue.use(Router)
 
@@ -20,6 +21,11 @@ export default new Router({
       path: '/SearchResults',
       name: 'SearchResults',
       component: SearchResults
+    },
+    {
+      path: '/RecipeDetails',
+      name: 'RecipeDetails',
+      component: RecipeDetails
     }
   ]
 })

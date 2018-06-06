@@ -21,6 +21,13 @@ var ingredientRecipeSearch = axios.create({
     baseURL: foodApi + '/findByIngredient?ingredients=',
     timeout: 3000
 })
+var recipeDetailsSearch = axios.create({
+    headers: {
+        "X-Mashape-Key" : "WUU1lLesMimshTMLlxjAtkQGQMk6p1JQPB5jsnLPJCHfNJbugE"
+    },
+    baseURL: foodApi,
+    timeout: 3000
+})
 var api = axios.create({
     baseURL: baseUrl,
     timeout: 3000,
@@ -81,7 +88,7 @@ export default new vuex.Store({
         //         })
         // },
         getSearchResults({dispatch, commit}, query) {
-            genRecipeSearch.get(query + '&number=10')
+            genRecipeSearch.get(query + '&number=1')
             .then(res=>{
                 var recipes = res.data.results.map(recipe => {
                     return {
@@ -96,6 +103,28 @@ export default new vuex.Store({
                 })
                 console.log(res)
                 commit('setRecipes', res.data.results)
+            })
+        },
+        setActiveRecipe({dispatch, commit, state}, recipe){
+            commit('setActiveRecipe', this.recipe)
+            console.log(this.recipe)
+
+        },
+        getRecipeDetails({dispatch, commit}, id){
+            recipeDetailsSearch.get(id + '/information&includeNutrition=false')
+            .then(res=>{
+                var recipes = res.data.results.map(recipe => {
+                    return {
+                        title: recipe.title,
+                        image: recipe.image,
+                        readyInMinutes: recipe.readyInMinutes,
+                        sourceUrl: recipe.sourceUrl,
+                        instructions: recipe.instructions,
+                        ingredients: recipe.extendedIngredients,
+                        spoonId: recipe.id
+                    }
+                })
+                console.log(res)
             })
         },
     

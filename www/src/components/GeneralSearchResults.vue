@@ -6,9 +6,11 @@
       <button @click="getSearchResults">Search All Recipes</button>
       <div>
         <ol>
-          <li v-for="recipe in recipes">
-            <h4>{{recipe.title}}</h4>
-            <h5>Cook Time: {{recipe.readyInMinutes}} minutes</h5>
+          <li v-for="recipe in recipes" :key="recipe.spoonId" @click="setActiveRecipe(this.recipe)">
+              <router-link :to="{name: 'RecipeDetails', params:{spoonId: recipe.spoonId}}">
+                <h4>{{recipe.title}}</h4>
+                <h5>Cook Time: {{recipe.readyInMinutes}} minutes</h5>
+              </router-link>
           </li>
         </ol>
       </div>
@@ -41,6 +43,9 @@
     methods: {
           getSearchResults(){
             this.$store.dispatch('getSearchResults', this.query)
+          },
+          setActiveRecipe(){
+            this.$store.dispatch('setActiveRecipe', this.recipe)
           }
     }
   }
