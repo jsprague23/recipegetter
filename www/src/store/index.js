@@ -40,37 +40,40 @@ export default new vuex.Store({
 
     },
     mutations: {
-        setUser(state,user){
-            state.user=user
+        setUser(state, user) {
+            state.user = user
         },
-        setRecipes(state, recipes){
+        setRecipes(state, recipes) {
             state.recipes = recipes
         },
-        setGroceryList(state,groceryList){
-            state.groceryList=groceryList
+        setGroceryList(state, groceryList) {
+            state.groceryList = groceryList
         },
-        setActiveRecipe(state, activeRecipe){
-            state.activeRecipe = activeRecipe 
+        setActiveRecipe(state, activeRecipe) {
+            state.activeRecipe = activeRecipe
+        },
+        setPantry(state, pantry) {
+            state.pantry = pantry
         }
     },
 
     actions: {
 
-        getRecipes({dispatch, commit}, query){
+        getRecipes({ dispatch, commit }, query) {
             spoonacularApi.get(query)
-            .then(res=>{
-                var foodList = res.data.results.map(recipe=>{
-                    return{
-                        title: recipe.title,
-                        image: recipe.image, 
-                        minutesReady: recipe.readyInMinutes,  
-                        sourceUrl: recipe.source.Url, 
-                        instructions: recipe.instructions,
-                        ingredients: recipe.extendedIngredients,
-                        id : recipe.id  
-                    }
+                .then(res => {
+                    var foodList = res.data.results.map(recipe => {
+                        return {
+                            title: recipe.title,
+                            image: recipe.image,
+                            minutesReady: recipe.readyInMinutes,
+                            sourceUrl: recipe.source.Url,
+                            instructions: recipe.instructions,
+                            ingredients: recipe.extendedIngredients,
+                            id: recipe.id
+                        }
+                    })
                 })
-            })
         },
 
         //AUTH STUFF
@@ -94,8 +97,33 @@ export default new vuex.Store({
             auth.post('/register', userData)
                 .then(res => {
                     console.log("Registration Successful")
-                      router.push({ name: 'Home' }) // I changed this to just change the component 
+                    router.push({ name: 'Home' }) // I changed this to just change the component 
                 })
         }
+    },
+    authenticate({ commit, dispatch }) {
+        auth.get('/authenticate')
+            .then(res => {
+                commit('setUser', res.data)
+                router.push({ name: 'Home' })
+            })
+            .catch(res => {
+                console.log(res.data)
+            })
+    }, postGrocery({ commit, dispatch }, foodItem) {
+        api.post('/thepantry', foodItem)
+            .then(res => {
+                dispatch("getGroceries")
+            })
+            .catch(res => {
+                alert("err")
+            })
+    },
+    getGroceries({ commit, dispatch }, user) {
+        api.get('/myPantry/' + user)
+            .then(res => {
+                commit("setPantry", res.data)
+            })
     }
+
 })
