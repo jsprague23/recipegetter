@@ -10,7 +10,8 @@ var schema = new Schema({
   instructions: {type: String, required: true},
   sourceUrl: {type: String, required: true},
   extendedIngredients: {type: String, required: true},
-  userId: {type: ObjectId, ref: 'User', required: true}
+  userId: [{type: ObjectId, ref: 'User', required: true}],
+  spoonId: {trype: String, required: true}
 })
 
 module.exports = mongoose.model(schemaName, schema)
