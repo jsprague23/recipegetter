@@ -7,6 +7,7 @@
       <div>
         <ol>
           <li v-for="recipe in recipes">
+            <img :src="recipe.image">
             <h4>{{recipe.title}}</h4>
             </li>
         </ol>
@@ -32,7 +33,7 @@
     computed: {
       //may want to change if multipe results are desired
       recipes() {
-        return this.$store.state.recipes
+        return this.$store.state.ingRecipes
       }
     },
     methods: {

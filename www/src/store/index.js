@@ -50,6 +50,7 @@ export default new vuex.Store({
     state: {
         user: {},
         recipes: [],
+        ingRecipes: [],
         activeRecipe: {},
         groceryList: [],
         searchHistory: [],
@@ -73,6 +74,9 @@ export default new vuex.Store({
         },
         setPantry(state, pantry) {
             state.pantry = pantry
+        },
+        setIngRecipes(state, ingRecipes){
+            state.ingRecipes= ingRecipes
         }
     },
 
@@ -82,7 +86,7 @@ export default new vuex.Store({
             ingredientRecipeSearch.get(query + '&number=10'+ '&limitLicense=false' + '&ranking=1')
             .then(res=>{ 
                 console.log(res)
-                var recipes = res.data.map(recipe => {
+                var ingRecipes = res.data.map(recipe => {
                     return {
                         title: recipe.title,
                         image: recipe.image,
@@ -93,7 +97,7 @@ export default new vuex.Store({
                         spoonId: recipe.id
                     }
                 })
-                commit('setRecipes', res.data)
+                commit('setIngRecipes', res.data)
             })
         },
         
