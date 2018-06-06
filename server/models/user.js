@@ -6,8 +6,8 @@ let schemaName = 'User'
 const SALT = 10
 
 let schema = new Schema({
-  userName: { type: String, required: true },
-  email: { type: String, required: true, unique: true, dropDups: true },
+  userName: { type: String, required: true, unique: true},
+  email: { type: String, required: true, unique: true},
   password: { type: String, required: true },
   created: { type: Number, required: true, default: Date.now() },
   favorites: [{type: ObjectId, ref: 'Recipe'}]

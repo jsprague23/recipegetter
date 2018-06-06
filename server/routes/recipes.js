@@ -12,7 +12,7 @@ router.get('/api/recipes/:id', (req, res, next) => {
   })
 })
 
-//TO DO: GET SPECIFIC RESULTS
+
 
 // //EDIT
 // router.put('/api/recipes/:id', (req,res) => {
@@ -25,16 +25,16 @@ router.get('/api/recipes/:id', (req, res, next) => {
 //   })
 //  })
 
-// //CREATE NEW
-// router.post('/api/recipes/', (req, res) => {
-//   Recipes.create(req.body)
-//   .then(newRecipe => {
-//     res.send(newRecipe)
-//   })
-//   .catch(err => {
-//     res.status(400).send(err)
-//   })
-// })
+// CREATE NEW
+router.post('/api/recipes/', (req, res) => {
+  Recipes.create(req.body)
+  .then(newRecipe => {
+    res.send(newRecipe)
+  })
+  .catch(err => {
+    res.status(400).send(err)
+  })
+})
 
 //DELETE
 router.delete('/api/recipes/:id', (req, res) => {

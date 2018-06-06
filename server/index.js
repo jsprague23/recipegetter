@@ -22,8 +22,20 @@ var corsOptions = {
 };
 app.use(cors(corsOptions))
 
+//REGISTER MIDDLEWEAR
+app.use(bp.json())
+app.use(bp.urlencoded({ 
+  extended: true}))
 
+  let auth = require('./auth/routes')
+app.use(auth.session)
+app.use(auth.router)
 
+var grocLists = require('./routes/grocLists')
+var recipes = require('./routes/recipes')
+
+app.use(grocLists.router)
+app.use(recipes.router)
 
 
 //Catch All
