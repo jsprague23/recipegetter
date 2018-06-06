@@ -1,12 +1,12 @@
 <template>
-  <div class="IngredientSearchResults">
-Ingredienat Search IngredientSearchResults
+  <div class="GeneralSearchResults">
+This is the general search results! 
   </div>
 </template>
 
 <script>
   export default {
-    name: 'IngredientSearchResults',
+    name: 'GeneralSearchResults',
     data() {
       return {
 
