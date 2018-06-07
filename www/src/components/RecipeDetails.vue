@@ -1,47 +1,58 @@
 <template>
-    <div class="RecipeDetails">
-       <h1>Recipe details will go here</h1>
-{{activeRecipe.title}}
+    <div class="RecipeDetails container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1>{{activeRecipe.title}}</h1>
+                <img :src="activeRecipe.image">
+            </div>
+            <div class="col-3"></div>
+            <div class="col-6 text-center">
+                {{activeRecipe.instructions}}
 
-<div v-for="item in activeRecipe.ingredients">
-    {{item.name}}
-</div>
-</div>
+                <div v-for="item in activeRecipe.ingredients">
+                    {{item.amount}} {{item.unit}} {{item.name}}
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+
+
+
+    </div>
 </template>
 
 
 <script>
-  import router from '../router'
-  export default {
-    name: 'RecipeDetails',
-    components:{},
-    mounted(){
-        this.$store.dispatch('getRecipeDetails', this.$route.params.spoonId)
-    },
-    data(){
-        return {
-            recipe: {
-               title: '',
-               image: '',
-               minutesReady: '',
-               sourceUrl: '',
-               instructions: '',
-               ingredients: '',
-               spoonId: ''
+    import router from '../router'
+    export default {
+        name: 'RecipeDetails',
+        components: {},
+        mounted() {
+            this.$store.dispatch('getRecipeDetails', this.$route.params.spoonId)
         },
-        }
-    },
-    computed:{
-       activeRecipe(){
-           return this.$store.state.activeRecipe
-       }
-    },
-    methods:{}
+        data() {
+            return {
+                recipe: {
+                    title: '',
+                    image: '',
+                    minutesReady: '',
+                    sourceUrl: '',
+                    instructions: '',
+                    ingredients: '',
+                    spoonId: ''
+                },
+            }
+        },
+        computed: {
+            activeRecipe() {
+                return this.$store.state.activeRecipe
+            }
+        },
+        methods: {}
 
-}
+    }
 </script>
 
 
 <style scoped>
-
 </style>

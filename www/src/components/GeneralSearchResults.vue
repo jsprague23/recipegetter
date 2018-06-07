@@ -9,6 +9,7 @@
           <!-- @click="setActiveRecipe(this.recipe)" -->
           <li v-for="recipe in recipes" :key="recipe.spoonId" >
               <router-link :to="{name: 'RecipeDetails', params:{spoonId: recipe.spoonId}}">
+                  <img :src="'https://spoonacular.com/recipeImages/' + recipe.image">
                 <h4>{{recipe.title}}</h4>
                 <h5>Cook Time: {{recipe.readyInMinutes}} minutes</h5>
               </router-link>

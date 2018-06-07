@@ -7,8 +7,10 @@
       <div>
         <ol>
           <li v-for="recipe in recipes">
+              <router-link :to="{name: 'RecipeDetails', params:{spoonId: recipe.spoonId}}">
             <img :src="recipe.image">
             <h4>{{recipe.title}}</h4>
+            </router-link>
             </li>
         </ol>
       </div>

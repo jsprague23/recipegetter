@@ -93,14 +93,11 @@ export default new vuex.Store({
                     return {
                         title: recipe.title,
                         image: recipe.image,
-                        // readyInMinutes: recipe.readyInMinutes,
-                        // sourceUrl: recipe.sourceUrl,
-                        // instructions: recipe.instructions,
-                        // ingredients: recipe.extendedIngredients,
+
                         spoonId: recipe.id
                     }
                 })
-                commit('setIngRecipes', res.data)
+                commit('setIngRecipes', ingRecipes)
             })
         },
         
@@ -122,7 +119,7 @@ export default new vuex.Store({
         //         })
         // },
         getSearchResults({dispatch, commit}, query) {
-            genRecipeSearch.get(query + '&number=1')
+            genRecipeSearch.get(query + '&number=10')
             .then(res=>{
                 var recipes = res.data.results.map(recipe => {
                     return {
