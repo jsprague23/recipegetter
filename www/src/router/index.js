@@ -5,6 +5,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import SearchResults from '@/components/SearchResults'
 import RecipeDetails from '@/components/RecipeDetails'
+import ProfilePage from '@/components/ProfilePage'
 
 Vue.use(Router)
 
@@ -26,6 +27,11 @@ export default new Router({
       path: '/RecipeDetails/:spoonId',
       name: 'RecipeDetails',
       component: RecipeDetails
+    },
+    {
+    path: '/ProfilePage',
+    name: 'ProfilePage',
+    component: ProfilePage
     }
   ]
 })
