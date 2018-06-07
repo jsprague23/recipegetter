@@ -15,16 +15,19 @@
           <router-link class="nav-link" :to="{name: 'ProfilePage'}">Profile</router-link>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+<div class="form-inline my-2 my-lg-0" v-if="!user._id"><router-link class="nav-link" :to="{name: 'Auth'}">login/register
+    </router-link></div>
+
+    
+
+    <div class="form-inline my-2 my-lg-0" v-else > username: {{user.userName}}<button @click="logout">Log Out</button></div>
   </div>
 </nav>
   </div>
 </template>
 
 <script>
+   import router from '../router'
   export default {
     name: 'NavBar',
     data() {
@@ -32,8 +35,16 @@
 
       }
     },
-    computed: {},
-    methods: {}
+    computed: {
+      user(){
+        return this.$store.state.user
+      }
+    },
+    methods: {
+      logout(){
+        this.$store.dispatch('logout')
+      }
+    }
   }
 
 </script>

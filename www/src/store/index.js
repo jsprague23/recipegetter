@@ -59,6 +59,9 @@ export default new vuex.Store({
 
     },
     mutations: {
+        deleteUser (state){
+            state.user = {}
+        },
         setUser(state, user) {
             state.user = user
         },

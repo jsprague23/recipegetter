@@ -6,6 +6,8 @@ import Home from '@/components/Home'
 import SearchResults from '@/components/SearchResults'
 import RecipeDetails from '@/components/RecipeDetails'
 import ProfilePage from '@/components/ProfilePage'
+import GeneralSearchResults from '@/components/GeneralSearchResults'
+import Auth from '@/components/Auth'
 
 Vue.use(Router)
 
@@ -32,6 +34,16 @@ export default new Router({
     path: '/ProfilePage',
     name: 'ProfilePage',
     component: ProfilePage
+    },
+    {
+      path: '/GeneralSearchResults',
+      name: 'GeneralSearchResults',
+      component: GeneralSearchResults
+    },
+    {
+      path: '/Auth',
+      name: 'Auth',
+      component: Auth
     }
   ]
 })
