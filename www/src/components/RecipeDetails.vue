@@ -1,8 +1,12 @@
 <template>
     <div class="RecipeDetails">
        <h1>Recipe details will go here</h1>
+{{activeRecipe.title}}
 
-    </div>
+<div v-for="item in activeRecipe.ingredients">
+    {{item.name}}
+</div>
+</div>
 </template>
 
 
@@ -10,10 +14,9 @@
   import router from '../router'
   export default {
     name: 'RecipeDetails',
-    props: ['spoonId'],
     components:{},
     mounted(){
-        this.$store.dispatch('getRecipeDetails', this.spoonId)
+        this.$store.dispatch('getRecipeDetails', this.$route.params.spoonId)
     },
     data(){
         return {
@@ -34,6 +37,7 @@
        }
     },
     methods:{}
+
 }
 </script>
 

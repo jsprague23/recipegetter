@@ -126,14 +126,14 @@ export default new vuex.Store({
                         title: recipe.title,
                         image: recipe.image,
                         readyInMinutes: recipe.readyInMinutes,
-                        sourceUrl: recipe.sourceUrl,
-                        instructions: recipe.instructions,
-                        ingredients: recipe.extendedIngredients,
+                        // sourceUrl: recipe.sourceUrl,
+                        // instructions: recipe.instructions,
+                        // ingredients: recipe.extendedIngredients,
                         spoonId: recipe.id
                     }
                 })
                 console.log(res)
-                commit('setRecipes', res.data.results)
+                commit('setRecipes', recipes)
             })
         },
         setActiveRecipe({dispatch, commit, state}, recipe){
@@ -142,20 +142,18 @@ export default new vuex.Store({
 
         },
         getRecipeDetails({dispatch, commit}, id){
-            recipeDetailsSearch.get(id + '/information&includeNutrition=false')
+            recipeDetailsSearch.get(id + '/information')
             .then(res=>{
-                var recipes = res.data.results.map(recipe => {
-                    return {
-                        title: recipe.title,
-                        image: recipe.image,
-                        readyInMinutes: recipe.readyInMinutes,
-                        sourceUrl: recipe.sourceUrl,
-                        instructions: recipe.instructions,
-                        ingredients: recipe.extendedIngredients,
-                        spoonId: recipe.id
-                    }
-                })
                 console.log(res)
+                var recipe = {}
+                recipe.title = res.data.title,
+                recipe.image = res.data.image,
+                recipe.readyInMinutes = res.data.readyInMinutes,
+                recipe.sourceUrl = res.data.sourceUrl,
+                recipe.instructions = res.data.instructions ,
+                recipe.ingredients = res.data.extendedIngredients,
+                recipe.spoonId = res.data.id
+                commit('setActiveRecipe', recipe)
             })
         },
     

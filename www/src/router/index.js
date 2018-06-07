@@ -23,7 +23,7 @@ export default new Router({
       component: SearchResults
     },
     {
-      path: '/RecipeDetails',
+      path: '/RecipeDetails/:spoonId',
       name: 'RecipeDetails',
       component: RecipeDetails
     }
