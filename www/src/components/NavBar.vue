@@ -14,6 +14,12 @@
       <li class="nav-item">
           <router-link class="nav-link" :to="{name: 'ProfilePage'}">Profile</router-link>
       </li>
+      <li class="nav-item">
+          <router-link class="nav-link" :to="{name: 'SearchResults'}">Search</router-link>
+      </li>
+      <li class="nav-item">
+          <router-link class="nav-link" :to="{name: 'Favorites'}">Favorites</router-link>
+      </li>
     </ul>
 <div class="form-inline my-2 my-lg-0" v-if="!user._id"><router-link class="nav-link" :to="{name: 'Auth'}">login/register
     </router-link></div>

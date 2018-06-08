@@ -12,8 +12,8 @@
               <img :src="'https://spoonacular.com/recipeImages/' + recipe.image">
               <h4>{{recipe.title}}</h4>
               <h5>Cook Time: {{recipe.readyInMinutes}} minutes</h5>
-              <button @click="addToFavorites">Favorite</button>
             </router-link>
+              
           </li>
         </ol>
       </div>
@@ -41,11 +41,16 @@
     computed: {
       recipes() {
         return this.$store.state.recipes
-      }
+      },
+      activeRecipe() {
+                return this.$store.state.activeRecipe
+            }
     },
     methods: {
       addToFavorites(recipe) {
-        this.$store.dispatch('addToFavorites', recipe)
+        console.log(recipe)
+        this.$store.dispatch('getRecipeDetails', recipe.spoonId)
+        this.$store.dispatch('addToFavorites', this.activeRecipe)
       },
       getSearchResults() {
         this.$store.dispatch('getSearchResults', this.query)
