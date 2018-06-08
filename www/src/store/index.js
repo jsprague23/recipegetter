@@ -189,7 +189,7 @@ export default new vuex.Store({
             api.get('/authenticate')
                 .then(res => {
                     commit('setUser', res.data)
-                    router.push({ name: 'Home' })
+                    // router.push({ name: 'Home' })
                 })
                 .catch(res => {
                     console.log(res.data)
@@ -211,9 +211,15 @@ export default new vuex.Store({
                 })
         },
         addToFavorites({commit, dispatch,state}, recipe){
-            api.put('recipes/:id')
+            api.post('/favorites', recipe)
             .then(res=>{
             commit ('setFavorites', res.data)
+            })
+        },
+        getFavorites({commit, dispatch,state}, recipe){
+            api.get('/favorites', recipe)
+            .then(res=>{
+                commit ('setFavorites', res.data.favorites)
             })
         }
     }

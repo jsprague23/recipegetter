@@ -50,8 +50,8 @@
             }
         },
         methods: {
-            addToFavorites(recipe){
-        this.$store.dispatch('addToFavorites', recipe)
+            addToFavorites(){
+        this.$store.dispatch('addToFavorites', this.activeRecipe)
       },
         }
 

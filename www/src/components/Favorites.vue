@@ -1,6 +1,9 @@
 <template>
   <div class="favorites">
-
+    <h1>My favorites</h1>
+    <ul>
+      <li v-for="fav in favorites">{{fav.title}}</li>
+    </ul>
   </div>
 </template>
 
@@ -11,6 +14,9 @@
       return {
 
       }
+    },
+    mounted(){
+      this.$store.dispatch("getFavorites")
     },
     computed: {
       favorites(){

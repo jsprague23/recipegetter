@@ -16,6 +16,9 @@ export default {
   components: {
     navBar
   },
+  mounted(){
+    this.$store.dispatch('authenticate')
+  },
   data(){
     return{}
 
