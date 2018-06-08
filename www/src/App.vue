@@ -1,11 +1,9 @@
 <template>
   <div role="navigation" id="app">
      <navBar>This is our navBar...but i don't really have a navbar here yet..?style?</navBar>
-  
-   <div><img src="./assets/logo.png">
     <router-view/>
   </div>
-     </div>
+     
 </template>
 
 <script>

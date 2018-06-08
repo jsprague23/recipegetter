@@ -14,7 +14,7 @@
      <form @submit.prevent="userRegister" >
        <input type="text" placeholder="Email" v-model="newUser.email">
        <input type="text" placeholder="userName" v-model="newUser.userName">
-       <input type="password" v-model="newUser.password">
+       <input type="password" placeholder="password" v-model="newUser.password">
        <button type="submit">register</button>
       </form>
       <button @click="regLog">login</button>
