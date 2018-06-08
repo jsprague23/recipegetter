@@ -1,9 +1,10 @@
 var router = require('express').Router()
-var Recipes = require('../models/recipe')
+var Recipe = require('../models/recipe')
+
 
 //GET ALL
 router.get('/api/recipes/:id', (req, res, next) => {
-  Recipes.find({userId: req.params.id})
+  Recipe.find({userId: req.params.id})
   .then(recipes => {
     res.send(recipes)
   })
@@ -11,6 +12,25 @@ router.get('/api/recipes/:id', (req, res, next) => {
     res.status(400).send(err)
   })
 })
+
+
+
+//FAVORITE 
+  //create data as recipie =>returned object will have _id
+  //get user by session
+  //add returned recipie _id to found users' favorites array
+
+  router.put('/api/recipes/:id',   (req,res)=>{
+    Recipe.find({_id: req.params.id})
+    .then(function (recipe) {
+      recipe.push(req.body)
+      // favorites.save()
+      res.send(recipe)
+    })
+    .catch(err=>{
+      res.status(400).send(err)
+    })
+  })
 
 
 
@@ -27,7 +47,7 @@ router.get('/api/recipes/:id', (req, res, next) => {
 
 // CREATE NEW
 router.post('/api/recipes/', (req, res) => {
-  Recipes.create(req.body)
+  Recipe.create(req.body)
   .then(newRecipe => {
     res.send(newRecipe)
   })
@@ -38,7 +58,7 @@ router.post('/api/recipes/', (req, res) => {
 
 //DELETE
 router.delete('/api/recipes/:id', (req, res) => {
-  Recipes.findByIdAndRemove(req.params.id)
+  Recipe.findByIdAndRemove(req.params.id)
   .then(() => {
     res.send("Deleted!")
   })

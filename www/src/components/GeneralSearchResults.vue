@@ -7,12 +7,13 @@
       <div>
         <ol>
           <!-- @click="setActiveRecipe(this.recipe)" -->
-          <li v-for="recipe in recipes" :key="recipe.spoonId" >
-              <router-link :to="{name: 'RecipeDetails', params:{spoonId: recipe.spoonId}}">
-                  <img :src="'https://spoonacular.com/recipeImages/' + recipe.image">
-                <h4>{{recipe.title}}</h4>
-                <h5>Cook Time: {{recipe.readyInMinutes}} minutes</h5>
-              </router-link>
+          <li v-for="recipe in recipes" :key="recipe.spoonId">
+            <router-link :to="{name: 'RecipeDetails', params:{spoonId: recipe.spoonId}}">
+              <img :src="'https://spoonacular.com/recipeImages/' + recipe.image">
+              <h4>{{recipe.title}}</h4>
+              <h5>Cook Time: {{recipe.readyInMinutes}} minutes</h5>
+              <button @click="addToFavorites">Favorite</button>
+            </router-link>
           </li>
         </ol>
       </div>
@@ -43,18 +44,19 @@
       }
     },
     methods: {
-          getSearchResults(){
-            this.$store.dispatch('getSearchResults', this.query)
-          },
-          setActiveRecipe(){
-            this.$store.dispatch('setActiveRecipe', this.recipe)
-          }
+      addToFavorites(recipe) {
+        this.$store.dispatch('addToFavorites', recipe)
+      },
+      getSearchResults() {
+        this.$store.dispatch('getSearchResults', this.query)
+      },
+      setActiveRecipe() {
+        this.$store.dispatch('setActiveRecipe', this.recipe)
+      }
     }
   }
 
 </script>
 
 <style>
-
-
 </style>

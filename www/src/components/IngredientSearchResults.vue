@@ -9,7 +9,7 @@
           <li v-for="recipe in recipes">
               <router-link :to="{name: 'RecipeDetails', params:{spoonId: recipe.spoonId}}">
             <img :src="recipe.image">
-            <h4>{{recipe.title}}</h4>
+            <h4>{{recipe.title}}</h4> <button @click="addToFavorites">Favorite</button>
             </router-link>
             </li>
         </ol>
@@ -39,6 +39,9 @@
       }
     },
     methods: {
+      addToFavorites(recipe){
+        this.$store.dispatch('addToFavorites', recipe)
+      },
       getSearchResults(){
         this.$store.dispatch("getSearchIngredients",this.query)
       }

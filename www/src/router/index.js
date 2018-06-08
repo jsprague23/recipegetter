@@ -8,6 +8,7 @@ import RecipeDetails from '@/components/RecipeDetails'
 import ProfilePage from '@/components/ProfilePage'
 import GeneralSearchResults from '@/components/GeneralSearchResults'
 import Auth from '@/components/Auth'
+import Favorites from '@/components/Favorites'
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ export default new Router({
       path: '/Auth',
       name: 'Auth',
       component: Auth
+    },
+    {
+      path: '/Favorites',
+      name:'Favorites',
+      component: Favorites
     }
   ]
 })
