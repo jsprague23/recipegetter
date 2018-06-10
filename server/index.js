@@ -33,9 +33,11 @@ app.use(auth.router)
 
 var grocLists = require('./routes/grocLists')
 var recipes = require('./routes/recipes')
+var users = require('./routes/users')
 
 app.use(grocLists.router)
 app.use(recipes.router)
+app.use(users.router)
 
 
 //Catch All

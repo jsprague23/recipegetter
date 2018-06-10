@@ -12,6 +12,7 @@
                 <div v-for="item in activeRecipe.ingredients">
                     {{item.amount}} {{item.unit}} {{item.name}}
                 </div>
+                <button @click="addToFavorites">Favorite</button>
                 <div class="col-3"></div>
             </div>
         </div>
@@ -41,7 +42,11 @@
                 return this.$store.state.recipes
             }
         },
-        methods: {}
+        methods: {
+            addToFavorites(){
+        this.$store.dispatch('addToFavorites', this.activeRecipe)
+      },
+        }
 
     }
 </script>

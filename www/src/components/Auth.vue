@@ -12,9 +12,9 @@
    <div v-else>  
 
      <form @submit.prevent="userRegister" >
-       <input type="text" placeholder="Email">
-       <input type="text" placeholder="userName">
-       <input type="password">
+       <input type="text" placeholder="Email" v-model="newUser.email">
+       <input type="text" placeholder="userName" v-model="newUser.userName">
+       <input type="password" placeholder="password" v-model="newUser.password">
        <button type="submit">register</button>
       </form>
       <button @click="regLog">login</button>

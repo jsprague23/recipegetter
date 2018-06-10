@@ -56,7 +56,7 @@ export default new vuex.Store({
         searchHistory: [],
         favorites: [],
         pantry: []
-
+    
     },
     mutations: {
         deleteUser (state){
@@ -80,6 +80,10 @@ export default new vuex.Store({
         },
         setIngRecipes(state, ingRecipes){
             state.ingRecipes= ingRecipes
+        },
+        setFavorites(state, favorites){
+            console.log(favorites)
+            state.favorites = favorites
         }
     },
 
@@ -196,7 +200,7 @@ export default new vuex.Store({
             api.get('/authenticate')
                 .then(res => {
                     commit('setUser', res.data)
-                    router.push({ name: 'Home' })
+                    // router.push({ name: 'Home' })
                 })
                 .catch(res => {
                     console.log(res.data)
@@ -216,6 +220,18 @@ export default new vuex.Store({
                 .then(res => {
                     commit("setPantry", res.data)
                 })
+        },
+        addToFavorites({commit, dispatch,state}, recipe){
+            api.post('/favorites', recipe)
+            .then(res=>{
+            commit ('setFavorites', res.data)
+            })
+        },
+        getFavorites({commit, dispatch,state}, recipe){
+            api.get('/favorites', recipe)
+            .then(res=>{
+                commit ('setFavorites', res.data.favorites)
+            })
         }
     }
 })
