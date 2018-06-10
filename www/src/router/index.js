@@ -11,7 +11,7 @@ import Auth from '@/components/Auth'
 
 Vue.use(Router)
 
-var api
+// var api <-- Guys, what is this?
 
 export default new Router({
   routes: [
@@ -28,7 +28,8 @@ export default new Router({
     {
       path: '/RecipeDetails/:spoonId',
       name: 'RecipeDetails',
-      component: RecipeDetails
+      props: true,
+      component: RecipeDetails,
     },
     {
     path: '/ProfilePage',

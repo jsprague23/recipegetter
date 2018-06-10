@@ -50,8 +50,8 @@ export default new vuex.Store({
     state: {
         user: {},
         recipes: [],
-        ingRecipes: [],
-        activeRecipe: {},
+        // ingRecipes: [],
+        recipe: {},
         groceryList: [],
         searchHistory: [],
         favorites: [],
@@ -72,8 +72,8 @@ export default new vuex.Store({
         setGroceryList(state, groceryList) {
             state.groceryList = groceryList
         },
-        setActiveRecipe(state, activeRecipe) {
-            state.activeRecipe = activeRecipe
+        setActiveRecipe(state, recipe) {
+            state.recipe = this.recipe
         },
         setPantry(state, pantry) {
             state.pantry = pantry
@@ -119,7 +119,7 @@ export default new vuex.Store({
         //         })
         // },
         getSearchResults({dispatch, commit}, query) {
-            genRecipeSearch.get(query + '&number=10')
+            genRecipeSearch.get(query + '&number=1')
             .then(res=>{
                 var recipes = res.data.results.map(recipe => {
                     return {
@@ -134,28 +134,39 @@ export default new vuex.Store({
                 })
                 console.log(res)
                 commit('setRecipes', recipes)
+                router.push({name: 'GeneralSearchResults'})
             })
         },
-        setActiveRecipe({dispatch, commit, state}, recipe){
-            commit('setActiveRecipe', this.recipe)
-            console.log(this.recipe)
-
-        },
-        getRecipeDetails({dispatch, commit}, id){
+        setRecipeDetails({dispatch, commit, state}, id){
             recipeDetailsSearch.get(id + '/information')
-            .then(res=>{
-                console.log(res)
+            .then(recipeDeets =>{
+                console.log(recipeDeets)
                 var recipe = {}
-                recipe.title = res.data.title,
-                recipe.image = res.data.image,
-                recipe.readyInMinutes = res.data.readyInMinutes,
-                recipe.sourceUrl = res.data.sourceUrl,
-                recipe.instructions = res.data.instructions ,
-                recipe.ingredients = res.data.extendedIngredients,
-                recipe.spoonId = res.data.id
+                recipe.title = recipeDeets.data.title,
+                recipe.image = recipeDeets.data.image,
+                recipe.readyInMinutes = recipeDeets.data.readyInMinutes,
+                recipe.sourceUrl = recipeDeets.data.sourceUrl,
+                recipe.instructions = recipeDeets.data.instructions ,
+                recipe.ingredients = recipeDeets.data.extendedIngredients,
+                recipe.spoonId = recipeDeets.data.id
                 commit('setActiveRecipe', recipe)
             })
         },
+        // getRecipeDetails({dispatch, commit}, id){
+        //     recipeDetailsSearch.get(id + '/information')
+        //     .then(res=>{
+        //         console.log(res)
+        //         var recipe = {}
+        //         recipe.title = res.data.title,
+        //         recipe.image = res.data.image,
+        //         recipe.readyInMinutes = res.data.readyInMinutes,
+        //         recipe.sourceUrl = res.data.sourceUrl,
+        //         recipe.instructions = res.data.instructions ,
+        //         recipe.ingredients = res.data.extendedIngredients,
+        //         recipe.spoonId = res.data.id
+        //         commit('setActiveRecipe', recipe)
+        //     })
+        // },
     
         //AUTH STUFF
         login({ commit, dispatch }, loginCredentials) {

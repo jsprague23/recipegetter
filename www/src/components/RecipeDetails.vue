@@ -26,26 +26,19 @@
     import router from '../router'
     export default {
         name: 'RecipeDetails',
+        props: ['GeneralSearchResults'],
         components: {},
         mounted() {
-            this.$store.dispatch('getRecipeDetails', this.$route.params.spoonId)
+            this.$store.dispatch('getRecipeDetails', this.activeRecipe.spoonId)
         },
         data() {
             return {
-                recipe: {
-                    title: '',
-                    image: '',
-                    minutesReady: '',
-                    sourceUrl: '',
-                    instructions: '',
-                    ingredients: '',
-                    spoonId: ''
-                },
+                     
             }
         },
         computed: {
-            activeRecipe() {
-                return this.$store.state.activeRecipe
+            recipes() {
+                return this.$store.state.recipes
             }
         },
         methods: {}
