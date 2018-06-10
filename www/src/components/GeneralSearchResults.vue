@@ -7,22 +7,12 @@
       <div> -->
         <ol>
           <!-- @click="setActiveRecipe(this.recipe)" -->
-<<<<<<< HEAD
           <li @click="setRecipeDetails" v-for="recipe in recipes" :key="recipe.spoonId" >
               <router-link :to="{name: 'RecipeDetails', params: spoonId}">
                   <img :src="'https://spoonacular.com/recipeImages/' + recipe.image">
                 <h4>{{recipe.title}}</h4>
                 <h5>Cook Time: {{recipe.readyInMinutes}} minutes</h5>
               </router-link>
-=======
-          <li v-for="recipe in recipes" :key="recipe.spoonId">
-            <router-link :to="{name: 'RecipeDetails', params:{spoonId: recipe.spoonId}}">
-              <img :src="'https://spoonacular.com/recipeImages/' + recipe.image">
-              <h4>{{recipe.title}}</h4>
-              <h5>Cook Time: {{recipe.readyInMinutes}} minutes</h5>
-            </router-link>
-              
->>>>>>> fa013b38552ac5c3b41fb6e4adfd03fa7dff4050
           </li>
         </ol>
       </div>
