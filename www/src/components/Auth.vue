@@ -22,8 +22,7 @@
       </form>
       <p @click="regLog">Already a user? Login Here!</p>
    </div>
-   
-    
+   </div>
   </div>
 </template>
 
