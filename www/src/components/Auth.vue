@@ -7,7 +7,7 @@
         <input type="password" v-model="log.password">
         <button type="submit">login</button>
       </form>
-      <button @click="regLog">register</button>
+      <p @click="regLog">Don't have a username? Register here</p>
     </div>
    <div v-else>  
 
@@ -17,7 +17,7 @@
        <input type="password" placeholder="password" v-model="newUser.password">
        <button type="submit">register</button>
       </form>
-      <button @click="regLog">login</button>
+      <p @click="regLog">Already a user? Login Here!</p>
    </div>
    
     
@@ -67,6 +67,10 @@ this.$store.dispatch('authenticate')
 </script>
 
 <style>
-
+p:hover{
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+    }
 
 </style>
