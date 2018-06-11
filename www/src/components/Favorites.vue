@@ -30,10 +30,13 @@
 </script>
 
 <style>
-
 ul {
   list-style: none
 }
+.favorites{
+  text-align: center
+}
+
 
 
 </style>

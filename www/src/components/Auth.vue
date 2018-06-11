@@ -1,8 +1,11 @@
 <template>
+  <div class="container-fluid">
   <div class="auth">
+    <h1 class="logoFont">FoodyMcFoodFace</h1>
+    <h5 class="logoFont">Hey! It looks like you're trying to do something that is not allowed without signing in. If you would like full access to all of the recipes and be able to save your favorite recipes so that you can view whenever you want! It's a simple process and wont take much time! </h5>
     <div v-if="!logister">
 
-      <form @submit.prevent="login" >
+      <form @submit.prevent="login">
         <input type="text" placeholder="Email" v-model="log.email">
         <input type="password" v-model="log.password">
         <button type="submit">login</button>
@@ -19,8 +22,7 @@
       </form>
       <p @click="regLog">Already a user? Login Here!</p>
    </div>
-   
-    
+   </div>
   </div>
 </template>
 
@@ -67,10 +69,20 @@ this.$store.dispatch('authenticate')
 </script>
 
 <style>
-p:hover{
-        cursor: pointer;
-        color: blue;
-        text-decoration: underline;
-    }
+.auth{
+  text-align: center;
+  background: #cfe6ad;
+  height: 95.8vh;
+  
+  
+}
+.container-fluid{
+  background: #e5e8d8
+}
+
+.logoFont{
+  font-family: 'VT323', monospace;
+
+}
 
 </style>

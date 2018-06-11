@@ -61,4 +61,15 @@
 </script>
 
 <style>
+  .navbar{
+    background-color: #e5e8d8
+  }
+.logo{
+  border-radius: 5rem;
+  border: rgb(110, 110, 110) solid 2px;
+  height: 3rem;
+  width: 3rem;
+  background: #e5e8d8
+}
+
 </style>
