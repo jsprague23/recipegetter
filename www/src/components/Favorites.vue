@@ -1,0 +1,42 @@
+<template>
+  <div class="favorites">
+    <h1>My favorites</h1>
+    <ul>
+      <li v-for="fav in favorites"><router-link :to="{name: 'RecipeDetails', params:{spoonId: fav.spoonId}}">{{fav.title}}</router-link></li>
+    </ul>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'favorites',
+    data() {
+      return {
+
+      }
+    },
+    mounted(){
+      this.$store.dispatch("getFavorites")
+    },
+    computed: {
+      favorites(){
+      return this.$store.state.favorites
+      }
+      
+    },
+    methods: {}
+  }
+
+</script>
+
+<style>
+ul {
+  list-style: none
+}
+.favorites{
+  text-align: center
+}
+
+
+
+</style>

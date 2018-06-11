@@ -1,0 +1,71 @@
+<template>
+  <div class="NavBar">
+<nav class="navbar navbar-expand-lg navbar-light">
+    <img class="logo" src="../../foodLogo.png" alt="">
+  <a class="navbar-brand" href="#">FoodyMcFoodFace</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-link">
+       <router-link class="nav-link" :to="{name: 'Home'}"> Home <span class="sr-only">(current)</span></router-link>
+      </li>
+      <li class="nav-item">
+          <router-link class="nav-link" :to="{name: 'ProfilePage'}">Profile</router-link>
+      </li>
+      <li class="nav-item">
+          <router-link class="nav-link" :to="{name: 'SearchResults'}">Search</router-link>
+      </li>
+      <li class="nav-item">
+          <router-link class="nav-link" :to="{name: 'Favorites'}">Favorites</router-link>
+      </li>
+    </ul>
+<div class="form-inline my-2 my-lg-0" v-if="!user._id"><router-link class="nav-link" :to="{name: 'Auth'}">login/register
+    </router-link></div>
+
+    
+
+    <div class="form-inline my-2 my-lg-0" v-else > username: {{user.userName}}<button @click="logout">Log Out</button></div>
+  </div>
+</nav>
+  </div>
+</template>
+
+<script>
+   import router from '../router'
+  export default {
+    name: 'NavBar',
+    data() {
+      return {
+
+      }
+    },
+    computed: {
+      user(){
+        return this.$store.state.user
+      }
+    },
+    methods: {
+      logout(){
+        this.$store.dispatch('logout')
+      }
+    }
+  }
+
+</script>
+
+<style>
+  .navbar{
+    background-color: #e5e8d8
+  }
+.logo{
+  border-radius: 5rem;
+  border: rgb(110, 110, 110) solid 2px;
+  height: 3rem;
+  width: 3rem;
+  background: #e5e8d8
+}
+
+</style>
