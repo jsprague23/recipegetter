@@ -1,6 +1,6 @@
 <template>
-  <div class="container-fluid">
-  <div class="auth">
+  <div class="container-fluid d-flex justify-content-center">
+  <div class="jumbotron ">
     <h1 class="logoFont">FoodyMcFoodFace</h1>
     <h5 class="logoFont">Hey! It looks like you're trying to do something that is not allowed without signing in. If you would like full access to all of the recipes and be able to save your favorite recipes so that you can view whenever you want! It's a simple process and wont take much time! </h5>
     <div v-if="!logister">
@@ -69,15 +69,30 @@ this.$store.dispatch('authenticate')
 </script>
 
 <style>
-.auth{
+  html { 
+  background: rgb(173, 201, 127); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.jumbotron{
   text-align: center;
-  background: #cfe6ad;
-  height: 95.8vh;
+  background: #e5e8d8;
+ margin-left: 5rem;
+ margin-right: 5rem;
+  margin-top: 5rem;
+  margin-bottom: auto;
   
   
 }
 .container-fluid{
-  background: #e5e8d8
+  background: rgb(173, 201, 127);
+  background-size:cover;
+  margin: 0px;
+   height: 100%;
+   width: 100%;
+  
 }
 
 .logoFont{

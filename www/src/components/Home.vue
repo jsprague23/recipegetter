@@ -1,20 +1,20 @@
 <template>
   <div class="container-fluid" id="background">
     <div class="row">
-      <div class="col-3"></div>
-      <div class="col-6">
+      <div class="col">
         <div class="Home">
-          <h1>Food in Pantry? You could cook this!! </h1>
+          <div class="search">
+          <h1>What do you have in your pantry? Search bellow to find out what you can make!</h1>
+          <router-link :to="{name:'SearchResults'}">
+              <button class="button">GoToSearchField</button>
+            </router-link>
+        </div>
           <h1>Description of app here:</h1>
           <h3>- Different search features available -</h3>
           <h3>- Where the info is pulled and what is available in the search -</h3>
           <h3>- Extra stuf maybe, Idk, these will be longer when they contain info. -</h3>
-          <router-link :to="{name:'SearchResults'}">
-            <button>GoToSearchField</button>
-          </router-link>
         </div>
       </div>      
-      <div class="col-3"></div>
     </div>
   </div>
 </template>
@@ -48,12 +48,9 @@
     background-image: url("../assets/homeBackground.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    /* background-size: contain; */
-    /* display: block; */
-    margin-left: auto;
-    margin-right: auto;
-    /* object-fit:cover; */
+    background-attachment:fixed;
+    
+    color: white;
   }
 
   .button {
@@ -62,7 +59,6 @@
     border: none;
     color: white;
     padding: 2px 4px;
-    text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
@@ -102,5 +98,13 @@
 
   a {
     color: #42b983;
+  }
+  .col{
+    padding:0
+  }
+  .search{
+    background: #646464a4;
+    margin-top:5rem;
+    margin-bottom: 5rem 
   }
 </style>
