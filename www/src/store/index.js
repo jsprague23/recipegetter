@@ -85,11 +85,8 @@ export default new vuex.Store({
         setFavorites(state, favorites){
             console.log(favorites)
             state.favorites = favorites
-        },
-        deleteFavorite(state, favorites){
-            console.log(favorites)
-            state.favorites=favorites
         }
+        
     },
 
     actions: {
@@ -238,13 +235,18 @@ export default new vuex.Store({
                 commit ('setFavorites', res.data.favorites)
             })
         },
-        deleteFavorite({ commit, dispatch }) {
-            api.delete('/favorites/:id')
-                .then(res => {
-                    console.log("Successfully deleted Favorite!")
-                    commit('deleteFavorite')
+        // deleteFavorite({ commit, dispatch }) {
+        //     api.delete('/favorites/:id')
+        //         .then(res => {
+        //             console.log("Successfully deleted favorite!")
+        //             commit('deleteFavorite')
                     
-                })
-        },
+        //         })
+        // },
+        deleteFavorite ({ commit, dispatch }, id) {
+            api.delete('favorites/').then(res => {
+              dispatch('getFavorites')
+            })
+          }
     }
 })
