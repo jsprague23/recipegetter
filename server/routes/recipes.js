@@ -57,7 +57,7 @@ router.post('/api/recipes/', (req, res) => {
 })
 
 //DELETE
-router.delete('/api/recipes/:id', (req, res) => {
+router.delete('/api/favorites/:id', (req, res) => {
   Recipe.findByIdAndRemove(req.params.id)
   .then(() => {
     res.send("Deleted!")

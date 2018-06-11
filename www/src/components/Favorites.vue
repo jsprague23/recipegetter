@@ -2,7 +2,10 @@
   <div class="favorites">
     <h1>My favorites</h1>
     <ul>
-      <li v-for="fav in favorites"><router-link :to="{name: 'RecipeDetails', params:{spoonId: fav.spoonId}}">{{fav.title}}</router-link></li>
+      <li v-for="fav in favorites">
+        <router-link :to="{name: 'RecipeDetails', params:{spoonId: fav.spoonId}}">{{fav.title}}</router-link>
+        <button @click="deleteFavorite">Delete</button>
+      </li>
     </ul>
   </div>
 </template>
@@ -15,28 +18,30 @@
 
       }
     },
-    mounted(){
+    mounted() {
       this.$store.dispatch("getFavorites")
     },
     computed: {
-      favorites(){
-      return this.$store.state.favorites
+      favorites() {
+        return this.$store.state.favorites
       }
-      
+
     },
-    methods: {}
+    methods: {
+      deleteFavorite() {
+        this.$store.dispatch('deleteFavorite')
+      }
+    }
   }
 
 </script>
 
 <style>
-ul {
-  list-style: none
-}
-.favorites{
-  text-align: center
-}
+  ul {
+    list-style: none
+  }
 
-
-
+  .favorites {
+    text-align: center
+  }
 </style>

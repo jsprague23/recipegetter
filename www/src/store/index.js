@@ -50,7 +50,7 @@ export default new vuex.Store({
     state: {
         user: {},
         recipes: [],
-        // ingRecipes: [],
+        ingRecipes: [],
         recipe: {},
         groceryList: [],
         searchHistory: [],
@@ -79,11 +79,16 @@ export default new vuex.Store({
             state.pantry = pantry
         },
         setIngRecipes(state, ingRecipes){
-            state.ingRecipes= ingRecipes
+            console.log(ingRecipes)
+            state.ingRecipes = ingRecipes
         },
         setFavorites(state, favorites){
             console.log(favorites)
             state.favorites = favorites
+        },
+        deleteFavorite(state, favorites){
+            console.log(favorites)
+            state.favorites=favorites
         }
     },
 
@@ -221,17 +226,25 @@ export default new vuex.Store({
                     commit("setPantry", res.data)
                 })
         },
-        addToFavorites({commit, dispatch,state}, recipe){
+        addToFavorites({commit, dispatch, state}, recipe){
             api.post('/favorites', recipe)
             .then(res=>{
             commit ('setFavorites', res.data)
             })
         },
-        getFavorites({commit, dispatch,state}, recipe){
+        getFavorites({commit, dispatch, state}, recipe){
             api.get('/favorites', recipe)
             .then(res=>{
                 commit ('setFavorites', res.data.favorites)
             })
-        }
+        },
+        deleteFavorite({ commit, dispatch }) {
+            api.delete('/favorites/:id')
+                .then(res => {
+                    console.log("Successfully deleted Favorite!")
+                    commit('deleteFavorite')
+                    
+                })
+        },
     }
 })
