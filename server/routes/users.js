@@ -26,6 +26,19 @@ router.post("/favorites", (req, res, next) => {
     })
 })
 
+router.delete('/favorites/:id', (req, res) => {
+  Users.findById(req.session.uid)
+  .then(user => {
+    debugger
+    user.favorites.pull(req.params.id)
+    res.send("Deleted!")
+  })
+  .catch(err => {
+    res.status(400).send(err)
+  })
+  
+})
+
 router.get("/favorites", (req, res, next) => {
   Users.findById(req.session.uid).populate("favorites").exec((err, user) => {
     res.send(user)

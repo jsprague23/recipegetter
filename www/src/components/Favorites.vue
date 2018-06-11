@@ -4,7 +4,7 @@
     <ul>
       <li v-for="fav in favorites">
         <router-link :to="{name: 'RecipeDetails', params:{spoonId: fav.spoonId}}">{{fav.title}}</router-link>
-        <button @click="deleteFavorite">Delete</button>
+        <button @click="deleteFavorite(fav._id)">Delete</button>
       </li>
     </ul>
   </div>
@@ -28,8 +28,8 @@
 
     },
     methods: {
-      deleteFavorite() {
-        this.$store.dispatch('deleteFavorite')
+      deleteFavorite(id) {
+        this.$store.dispatch('deleteFavorite',id)
       }
     }
   }

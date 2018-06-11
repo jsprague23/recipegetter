@@ -1,8 +1,8 @@
 <template>
   <div class="NavBar">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <img class="logo" src="../../foodLogo.png" alt="">
-      <a class="navbar-brand" href="#">FoodyMcFoodFace</a>
+      <img class="logo animateBar animated rollIn" src="../../foodLogo.png" alt="">
+      <a class="navbar-brand animated tada" href="#">FoodyMcFoodFace</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -52,24 +52,30 @@
       logout() {
         this.$store.dispatch('logout')
       },
-      getSearchResults(){
-            this.$store.dispatch('getSearchResults', this.query)
-          },
+      getSearchResults() {
+        this.$store.dispatch('getSearchResults', this.query)
+      },
     }
   }
 
 </script>
 
 <style>
-  .navbar{
+
+  #animateBar {
+  -vendor-animation-duration: 3s;
+  -vendor-animation-delay: 2s;
+  -vendor-animation-iteration-count: infinite;
+}
+  .navbar {
     background-color: #e5e8d8
   }
-.logo{
-  border-radius: 5rem;
-  border: rgb(110, 110, 110) solid 2px;
-  height: 3rem;
-  width: 3rem;
-  background: #e5e8d8
-}
 
+  .logo {
+    border-radius: 5rem;
+    border: rgb(110, 110, 110) solid 2px;
+    height: 3rem;
+    width: 3rem;
+    background: #e5e8d8
+  }
 </style>
