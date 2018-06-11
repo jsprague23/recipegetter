@@ -1,19 +1,18 @@
 <template>
   <div class="GeneralSearchResults">
     <h1>Recipe Search - Search the Whole Catalogue!</h1>
-    <div>
+    <!-- <div>
       <input type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
       <button @click="getSearchResults">Search All Recipes</button>
-      <div>
+      <div> -->
         <ol>
           <!-- @click="setActiveRecipe(this.recipe)" -->
-          <li v-for="recipe in recipes" :key="recipe.spoonId">
-            <router-link :to="{name: 'RecipeDetails', params:{spoonId: recipe.spoonId}}">
-              <img :src="'https://spoonacular.com/recipeImages/' + recipe.image">
-              <h4>{{recipe.title}}</h4>
-              <h5>Cook Time: {{recipe.readyInMinutes}} minutes</h5>
-            </router-link>
-              
+          <li @click="setRecipeDetails" v-for="recipe in recipes" :key="recipe.spoonId" >
+              <router-link :to="{name: 'RecipeDetails', params: spoonId}">
+                  <img :src="'https://spoonacular.com/recipeImages/' + recipe.image">
+                <h4>{{recipe.title}}</h4>
+                <h5>Cook Time: {{recipe.readyInMinutes}} minutes</h5>
+              </router-link>
           </li>
         </ol>
       </div>
@@ -29,10 +28,7 @@
         recipe: {
           title: '',
           image: '',
-          minutesReady: '',
-          sourceUrl: '',
-          instructions: '',
-          ingredients: '',
+          readyInMinutes: '',
           spoonId: ''
         },
         query: ''
@@ -64,4 +60,9 @@
 </script>
 
 <style>
+img{
+  height: 150px;
+  
+}
+
 </style>
