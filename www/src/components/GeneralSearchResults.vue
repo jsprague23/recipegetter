@@ -43,16 +43,6 @@
             }
     },
     methods: {
-<<<<<<< HEAD
-          getSearchResults(){
-            this.$store.dispatch('getSearchResults', this.query)
-          },
-          setRecipeDetails(){
-            this.recipe.spoonId = this.query
-            debugger
-            this.$store.dispatch('setRecipeDetails', this.query)
-          }
-=======
       addToFavorites(recipe) {
         console.log(recipe)
         this.$store.dispatch('getRecipeDetails', recipe.spoonId)
@@ -64,20 +54,15 @@
       setActiveRecipe() {
         this.$store.dispatch('setActiveRecipe', this.recipe)
       }
->>>>>>> fa013b38552ac5c3b41fb6e4adfd03fa7dff4050
     }
   }
 
 </script>
 
 <style>
-<<<<<<< HEAD
 img{
   height: 150px;
   
 }
 
 </style>
-=======
-</style>
->>>>>>> fa013b38552ac5c3b41fb6e4adfd03fa7dff4050
