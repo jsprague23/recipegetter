@@ -49,9 +49,9 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment:fixed;
-    
     color: white;
   }
+
 
   .button {
     background-color: #4CAF50;
