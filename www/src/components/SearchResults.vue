@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import IngredientSearchResults from "./IngredientSearchResults"
-import GeneralSearchResults from "./GeneralSearchResults"
+  import IngredientSearchResults from "./IngredientSearchResults"
+  import GeneralSearchResults from "./GeneralSearchResults"
   export default {
     name: 'SearchResults',
     data() {
@@ -23,10 +23,10 @@ import GeneralSearchResults from "./GeneralSearchResults"
       }
     },
     components: {
-        IngredientSearchResults,
-         GeneralSearchResults
+      IngredientSearchResults,
+      GeneralSearchResults
     },
-    
+
     computed: {},
     methods: {}
   }
@@ -34,18 +34,15 @@ import GeneralSearchResults from "./GeneralSearchResults"
 </script>
 
 <style>
+  @media only screen and (min-device-width:415px) {
 
-  #background {
-    background-image: url("../assets/searchPage.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    /* background-size: contain; */
-    /* display: block; */
-    margin-left: auto;
-    margin-right: auto;
-    /* object-fit:cover; */
+    #background {
+      background-image: url("../assets/searchPage.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+      height: 93.4vh
+    }
   }
-
-
 </style>

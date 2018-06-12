@@ -1,21 +1,22 @@
 <template>
-  <div class="GeneralSearchResults">
+  <div class="GeneralSearchResults" id="background">
     <h1>Recipe Search - Search the Whole Catalogue!</h1>
     <!-- <div>
       <input type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
       <button @click="getSearchResults">Search All Recipes</button>
       <div> -->
-        <ol>
+        <div class="card-columns">
+
           <!-- @click="setActiveRecipe(this.recipe)" -->
-          <li @click="setRecipeDetails" v-for="recipe in recipes" :key="recipe.spoonId" >
-              <router-link :to="{name: 'RecipeDetails', params: spoonId}">
-                  <img :src="'https://spoonacular.com/recipeImages/' + recipe.image">
-                <h4>{{recipe.title}}</h4>
-                <h5>Cook Time: {{recipe.readyInMinutes}} minutes</h5>
+          <div class="card"> @click="setRecipeDetails" v-for="recipe in recipes" :key="recipe.spoonId" >
+            <router-link :to="{name: 'RecipeDetails', params: spoonId}">
+              <img class="card-img-top":src="'https://spoonacular.com/recipeImages/' + recipe.image">
+              <div class="card-body"> <h4 class="card-title">{{recipe.title}}</h4>
+                <h5 class="card-text">Cook Time: {{recipe.readyInMinutes}} minutes</h5></div>
               </router-link>
-          </li>
-        </ol>
-      </div>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </template>
@@ -61,8 +62,43 @@
 
 <style>
 img{
-  height: 150px;
+  width: 400px;
   
+}
+
+@media only screen and (min-device-width:415px) {
+
+#background {
+  background-image: url("../assets/searchPage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  height: 93.4vh
+}
+}
+
+#fancy {
+  position: relative;
+  background-color: #FFC;
+  padding: 2rem;
+  text-align: center;
+  max-width: 400px;
+}
+
+#fancy::before {
+  content: "";
+
+  position : absolute;
+  z-index  : -1;
+  bottom   : 15px;
+  right    : 5px;
+  width    : 50%;
+  top      : 80%;
+  max-width: 200px;
+
+  box-shadow: 0px 13px 10px black;
+  transform: rotate(4deg);
 }
 
 </style>
