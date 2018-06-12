@@ -22,6 +22,7 @@
       </form>
       <p @click="regLog">Already a user? Login Here!</p>
    </div>
+   
    </div>
   </div>
 </template>
@@ -69,6 +70,11 @@ this.$store.dispatch('authenticate')
 </script>
 
 <style>
+p{
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+    }
   html { 
   background: rgb(173, 201, 127); 
   -webkit-background-size: cover;
