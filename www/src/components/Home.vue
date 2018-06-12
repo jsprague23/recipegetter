@@ -8,7 +8,7 @@
           <div class="search container">
           <h3>What do you have in your pantry? Search bellow to find out what you can make!</h3>
           <router-link :to="{name:'SearchResults'}">
-              <button class="button">GoToSearchField</button>
+              <button class="button">Go To Search Field </button>
             </router-link>
         </div>
           <h1>Description of app here:</h1>
