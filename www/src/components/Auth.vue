@@ -22,11 +22,8 @@
       </form>
       <p @click="regLog">Already a user? Login Here!</p>
    </div>
-<<<<<<< HEAD
    
-=======
    </div>
->>>>>>> b07de7051c8ce776a686df7c429621965c5aeb3e
   </div>
 </template>
 
@@ -73,13 +70,11 @@ this.$store.dispatch('authenticate')
 </script>
 
 <style>
-<<<<<<< HEAD
 p{
         cursor: pointer;
         color: blue;
         text-decoration: underline;
     }
-=======
   html { 
   background: rgb(173, 201, 127); 
   -webkit-background-size: cover;
@@ -110,6 +105,5 @@ p{
   font-family: 'VT323', monospace;
 
 }
->>>>>>> b07de7051c8ce776a686df7c429621965c5aeb3e
 
 </style>
