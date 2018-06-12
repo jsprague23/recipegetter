@@ -1,10 +1,12 @@
 <template>
   <div class="container-fluid" id="background">
-    <div class="row">
-      <div class="col">
+    <div class="row d-flex justify-content-center">
+      <img class="logo1 animateBar1 animated rollIn" src="../../foodLogo.png" alt="">
+      </div>
+      <div class="row">
         <div class="Home">
-          <div class="search">
-          <h1>What do you have in your pantry? Search bellow to find out what you can make!</h1>
+          <div class="search container">
+          <h3>What do you have in your pantry? Search bellow to find out what you can make!</h3>
           <router-link :to="{name:'SearchResults'}">
               <button class="button">GoToSearchField</button>
             </router-link>
@@ -44,14 +46,32 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+   @media only screen and (min-device-width:415px ){
+
   #background {
     background-image: url("../assets/homeBackground.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment:fixed;
     color: white;
+    height: 93.4vh
   }
-
+}
+#background {
+    background-image: url("../assets/homeBackground.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    color: white;
+}
+.logo1{
+  border-radius: 50%;
+  border: rgb(190, 190, 190) solid 2px;
+  background: #4141419d;
+  width: 22rem;
+  height: 22rem;
+  margin-top: 9rem
+}
 
   .button {
     background-color: #4CAF50;
@@ -106,5 +126,10 @@
     background: #646464a4;
     margin-top:5rem;
     margin-bottom: 5rem 
+  }
+  .animateBar1{
+    -vendor-animation-duration: 5s;
+  -vendor-animation-delay: 4s;
+  -vendor-animation-iteration-count: infinite;
   }
 </style>

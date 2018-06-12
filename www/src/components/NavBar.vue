@@ -1,8 +1,8 @@
 <template>
   <div class="NavBar">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <img class="logo animateBar animated rollIn" src="../../foodLogo.png" alt="">
-      <a class="navbar-brand animated tada" href="#">FoodyMcFoodFace</a>
+      <img class="logo" src="../../foodLogo.png" alt="">
+      <a class="navbar-brand" href="#">FoodyMcFoodFace</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
         </div>
         <div class="user form-inline my-2 my-lg-0" v-else>{{user.userName}}
         </div>
-        <button @click="logout">Log Out</button>
+        <button v-if="user._id" @click="logout">Log Out</button>
       </div>
     </nav>
   </div>
@@ -61,26 +61,14 @@
 </script>
 
 <style>
-
-  #animateBar {
-  -vendor-animation-duration: 3s;
-  -vendor-animation-delay: 2s;
+  .animateBar{
+  -vendor-animation-duration: 5s;
+  -vendor-animation-delay: 10s;
   -vendor-animation-iteration-count: infinite;
 }
   .navbar {
     background-color: #e5e8d8
   }
-<<<<<<< HEAD
-
-  .logo {
-    border-radius: 5rem;
-    border: rgb(110, 110, 110) solid 2px;
-    height: 3rem;
-    width: 3rem;
-    background: #e5e8d8
-  }
-</style>
-=======
 .logo{
   border-radius: 5rem;
   border: rgb(110, 110, 110) solid 2px;
@@ -94,4 +82,3 @@
   margin-right: 1rem
 }
 </style>
->>>>>>> 8b69d6e11b2345159963df7c0c7600060a233984
