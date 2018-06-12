@@ -9,6 +9,8 @@ import ProfilePage from '@/components/ProfilePage'
 import GeneralSearchResults from '@/components/GeneralSearchResults'
 import Auth from '@/components/Auth'
 import Favorites from '@/components/Favorites'
+import Calender from '@/components/Calender'
+
 
 Vue.use(Router)
 
@@ -51,6 +53,11 @@ export default new Router({
       path: '/Favorites',
       name:'Favorites',
       component: Favorites
+    },
+    {
+      path: '/Calender',
+      name:'Calender',
+      component: Calender
     }
   ]
 })
