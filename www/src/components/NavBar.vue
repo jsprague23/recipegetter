@@ -70,28 +70,13 @@
   .navbar {
     background-color: #e5e8d8
   }
-<<<<<<< HEAD
 
   .logo {
     border-radius: 5rem;
     border: rgb(110, 110, 110) solid 2px;
     height: 3rem;
     width: 3rem;
-    background: #e5e8d8
+    background: #e5e8d8;
+    filter: hue-rotate(90deg)
   }
 </style>
-=======
-.logo{
-  border-radius: 5rem;
-  border: rgb(110, 110, 110) solid 2px;
-  height: 3rem;
-  width: 3rem;
-  background: #e5e8d8;
-  margin-right: 1rem
-}
-.user{
-  margin-left: 3rem;
-  margin-right: 1rem
-}
-</style>
->>>>>>> 8b69d6e11b2345159963df7c0c7600060a233984

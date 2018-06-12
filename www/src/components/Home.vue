@@ -50,6 +50,7 @@
     background-repeat: no-repeat;
     background-attachment:fixed;
     color: white;
+    filter: hue-rotate(90deg);
   }
 
 
