@@ -2,9 +2,19 @@ import vue from 'vue'
 import vuex from 'vuex'
 import axios from 'axios'
 import router from "../router"
+import Buefy from 'buefy'
+import 'buefy/lib/buefy.css'
+import VCalendar from 'v-calendar';
+import 'v-calendar/lib/v-calendar.min.css';
 
+vue.use(Buefy)
 
 vue.use(vuex)
+
+vue.use(VCalendar, {
+    firstDayOfWeek: 2,  // Monday
+                    // ...other defaults
+  });
 
 var production = !window.location.host.includes('localhost');
 var baseUrl = production ? '//herokuapp.com/' : '//localhost:3000';
