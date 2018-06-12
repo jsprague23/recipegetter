@@ -2,7 +2,7 @@
   <div class="text-center">
     <v-calendar
       :attributes='attributes'
-      is-double-paned>
+      >
         <!--=========DAY POPOVER HEADER SLOT=========-->
   <div
   slot='day-popover-header'
