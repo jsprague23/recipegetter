@@ -20,7 +20,6 @@
       <p @click="regLog">Already a user? Login Here!</p>
    </div>
    
-    
   </div>
 </template>
 
@@ -67,7 +66,7 @@ this.$store.dispatch('authenticate')
 </script>
 
 <style>
-p:hover{
+p{
         cursor: pointer;
         color: blue;
         text-decoration: underline;
