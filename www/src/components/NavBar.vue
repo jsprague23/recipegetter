@@ -1,7 +1,8 @@
 <template>
   <div class="NavBar">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">FoodyMcFoodface</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <img class="logo animateBar animated rollIn" src="../../foodLogo.png" alt="">
+      <a class="navbar-brand animated tada" href="#">FoodyMcFoodFace</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -9,7 +10,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <router-link class="nav-link" :to="{name: 'Home'}"> Home
               <span class="sr-only">(current)</span>
             </router-link>
@@ -25,9 +26,9 @@
         <div class="form-inline my-2 my-lg-0" v-if="!user._id">
           <router-link class="nav-link" :to="{name: 'Auth'}">login/register</router-link>
         </div>
-        <div class="form-inline my-2 my-lg-0" v-else> username: {{user.userName}}
-          <button @click="logout">Log Out</button>
+        <div class="user form-inline my-2 my-lg-0" v-else>{{user.userName}}
         </div>
+        <button @click="logout">Log Out</button>
       </div>
     </nav>
   </div>
@@ -51,13 +52,46 @@
       logout() {
         this.$store.dispatch('logout')
       },
-      getSearchResults(){
-            this.$store.dispatch('getSearchResults', this.query)
-          },
+      getSearchResults() {
+        this.$store.dispatch('getSearchResults', this.query)
+      },
     }
   }
 
 </script>
 
 <style>
+
+  #animateBar {
+  -vendor-animation-duration: 3s;
+  -vendor-animation-delay: 2s;
+  -vendor-animation-iteration-count: infinite;
+}
+  .navbar {
+    background-color: #e5e8d8
+  }
+<<<<<<< HEAD
+
+  .logo {
+    border-radius: 5rem;
+    border: rgb(110, 110, 110) solid 2px;
+    height: 3rem;
+    width: 3rem;
+    background: #e5e8d8
+  }
 </style>
+=======
+.logo{
+  border-radius: 5rem;
+  border: rgb(110, 110, 110) solid 2px;
+  height: 3rem;
+  width: 3rem;
+  background: #e5e8d8;
+  margin-right: 1rem
+}
+.user{
+  margin-left: 3rem;
+  margin-right: 1rem
+}
+</style>
+>>>>>>> 8b69d6e11b2345159963df7c0c7600060a233984
