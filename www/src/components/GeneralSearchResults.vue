@@ -74,7 +74,7 @@ img{
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
-  height: 93.4vh
+  height: 100%
 }
 }
 
