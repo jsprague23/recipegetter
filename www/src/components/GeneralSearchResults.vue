@@ -30,7 +30,7 @@
           title: '',
           image: '',
           readyInMinutes: '',
-          spoonId: ''
+          spoonId: '',
         },
         query: ''
       }
@@ -54,6 +54,9 @@
       },
       setActiveRecipe() {
         this.$store.dispatch('setActiveRecipe', this.recipe)
+      },
+      setRecipeDetails(){
+        this.$store.dispatch('setRecipeDetails', this.recipe)
       }
     }
   }
