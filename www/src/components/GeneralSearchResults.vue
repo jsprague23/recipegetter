@@ -8,8 +8,8 @@
         <div class="card-columns">
 
           <!-- @click="setActiveRecipe(this.recipe)" -->
-          <div class="card" @click="setRecipeDetails" v-for="recipe in recipes" :key="recipe.spoonId" >
-            <router-link :to="{name: 'RecipeDetails', params: spoonId}">
+          <div class="card" v-for="recipe in recipes" :key="recipe.spoonId" >
+            <router-link :to="{name: 'RecipeDetails', params:{spoonId: recipe.spoonId}}">
               <img :src="'https://spoonacular.com/recipeImages/' + recipe.image">
               <div class="card-body"> <h4 class="card-title">{{recipe.title}}</h4>
                 <h5 class="card-text">Cook Time: {{recipe.readyInMinutes}} minutes</h5></div>
@@ -40,7 +40,7 @@
         return this.$store.state.recipes
       },
       activeRecipe() {
-                return this.$store.state.activeRecipe
+                return this.$store.state.recipe
             }
     },
     methods: {
