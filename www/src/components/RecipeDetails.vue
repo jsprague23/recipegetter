@@ -30,7 +30,8 @@
         props: ['GeneralSearchResults'],
         components: {},
         mounted() {
-            this.$store.dispatch('getRecipeDetails', this.activeRecipe.spoonId)
+            // console.log(this.$route.params.spoonId)
+            this.$store.dispatch('getRecipeDetails', this.$route.params.spoonId)
         },
         data() {
             return {
@@ -38,8 +39,8 @@
             }
         },
         computed: {
-            recipes() {
-                return this.$store.state.recipes
+            activeRecipe() {
+                return this.$store.state.recipe
             }
         },
         methods: {
