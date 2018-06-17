@@ -11,9 +11,11 @@
     <div class="row">
         <div class="col-3"></div>
     <div class="col-6 text-center">
+        <h3 class="titles">Instructions</h3>
       {{activeRecipe.instructions}}
-
+      <h3 class="titles">Ingredients</h3>
       <div v-for="item in activeRecipe.ingredients">
+          
         {{item.amount}} {{item.unit}} {{item.name}}
       </div>
       <button @click="addToFavorites">Favorite</button>
@@ -61,5 +63,8 @@
 
 <style scoped>
 
+.titles {
+    font-weight: bold;
+}
 
 </style>

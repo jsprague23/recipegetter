@@ -5,14 +5,14 @@
       <input type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
       <button @click="getSearchResults">Search All Recipes</button>
       <div>
-        <ol>
-          <li v-for="recipe in recipes">
-              <router-link :to="{name: 'RecipeDetails', params:{spoonId: recipe.spoonId}}">
-            <img :src="recipe.image">
-            <h4>{{recipe.title}}</h4> 
+        <div class="card">
+          <div v-for="recipe in recipes">
+            <router-link :to="{name: 'RecipeDetails', params:{spoonId: recipe.spoonId}}">
+              <img class="card-img-top" :src="recipe.image">
+              <h1 class="card-title titles">{{recipe.title}}</h1>
             </router-link>
-            </li>
-        </ol>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -37,14 +37,14 @@
       recipes() {
         return this.$store.state.ingRecipes
       },
-      
+
     },
     methods: {
-      addToFavorites(recipe){
+      addToFavorites(recipe) {
         this.$store.dispatch('addToFavorites', recipe)
       },
-      getSearchResults(){
-        this.$store.dispatch("getSearchIngredients",this.query)
+      getSearchResults() {
+        this.$store.dispatch("getSearchIngredients", this.query)
       }
     }
   }
@@ -52,4 +52,10 @@
 </script>
 
 <style>
+  .titles {
+    font-weight: bold;
+    color: pink;
+    font-size: 125%;
+  }
+
 </style>
