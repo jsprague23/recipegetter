@@ -135,7 +135,7 @@ export default new vuex.Store({
         //         })
         // },
         getSearchResults({dispatch, commit}, query) {
-            genRecipeSearch.get(query + '&number=3')
+            genRecipeSearch.get(query + '&number=6')
             .then(res=>{
                 var recipes = res.data.results.map(recipe => {
                     return {

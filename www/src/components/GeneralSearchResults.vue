@@ -1,5 +1,5 @@
 <template>
-  <div class="GeneralSearchResults" id="background">
+  <div class="GeneralSearchResults background">
     <h1>Recipe Search - Search the Whole Catalogue!</h1>
     <!-- <div>
       <input type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
@@ -71,11 +71,12 @@ img{
 
 @media only screen and (min-device-width:415px) {
 
-#background {
+.background {
   background-image: url("../assets/searchPage.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
+  /* background-repeat: repeat; */
   background-attachment: fixed;
+  display: block;
   color: white;
   height: 100%
 }
