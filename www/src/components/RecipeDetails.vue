@@ -1,26 +1,19 @@
 <template>
-  <div class="RecipeDetails container-fluid">
+  <div class=" card RecipeDetails container-fluid background">
     <div class="row">
       <div class="col-3"></div>
-      <div class="col-6">
+      <div class="card text-white bg-warning mb-3 col-6">
         <h1>{{activeRecipe.title}}</h1>
-        <img :src="activeRecipe.image">
+        <img class="card-img-top" :src="activeRecipe.image">
+        <h1 class="titles">Instructions</h1>
+        <div class="card text-white bg-success mb-3">{{activeRecipe.instructions}}</div>
+        <h3 class="titles">Ingredients</h3>
+        <div class="card text-white bg-success mb-3" v-for="item in activeRecipe.ingredients">
+          {{item.amount}} {{item.unit}} {{item.name}}
+        </div>
+        <button class="btn btn-success" @click="addToFavorites">Favorite</button>
       </div>
       <div class="col-3"></div>
-    </div>
-    <div class="row">
-        <div class="col-3"></div>
-    <div class="col-6 text-center">
-        <h3 class="titles">Instructions</h3>
-      {{activeRecipe.instructions}}
-      <h3 class="titles">Ingredients</h3>
-      <div v-for="item in activeRecipe.ingredients">
-          
-        {{item.amount}} {{item.unit}} {{item.name}}
-      </div>
-      <button @click="addToFavorites">Favorite</button>
-      <div class="col-3"></div>
-    </div>
     </div>
   </div>
 
@@ -62,9 +55,19 @@
 
 
 <style scoped>
+  .background {
+    background-image: url("../assets/favorites.jpg");
+    background-size: cover;
+    /* background-repeat: repeat; */
+    background-attachment: fixed;
+    display: block;
+    color: white;
+    height: 100%
+  }
 
-.titles {
+  .titles {
     font-weight: bold;
-}
+    font-size: 2em;
+  }
 
 </style>
