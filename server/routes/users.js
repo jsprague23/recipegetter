@@ -27,10 +27,12 @@ router.post("/favorites", (req, res, next) => {
 })
 
 router.delete('/favorites/:id', (req, res) => {
-  Users.findById(req.session.uid)
+  // Users.findById(req.session.uid)
+  Users.update({_id: req.session.uid}, {$pull: {"favorites": req.params.id}})
   .then(user => {
     console.log(user.favorites)
-    user.favorites.pull({spoonId: req.params.id})
+    // user.favorites.update({_id: req.params.id})
+   
     console.log("deleted")
     res.send("Deleted!")
   })
