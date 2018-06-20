@@ -1,5 +1,5 @@
 <template>
-  <div class="GeneralSearchResults" id="background">
+  <div class="GeneralSearchResults background">
     <h1>Recipe Search - Search the Whole Catalogue!</h1>
     <!-- <div>
       <input type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
@@ -10,7 +10,7 @@
           <!-- @click="setActiveRecipe(this.recipe)" -->
           <div class="card" v-for="recipe in recipes" :key="recipe.spoonId" >
             <router-link :to="{name: 'RecipeDetails', params:{spoonId: recipe.spoonId}}">
-              <img :src="'https://spoonacular.com/recipeImages/' + recipe.image">
+              <img class="card-img-top" :src="'https://spoonacular.com/recipeImages/' + recipe.image">
               <div class="card-body"> <h4 class="card-title">{{recipe.title}}</h4>
                 <h5 class="card-text">Cook Time: {{recipe.readyInMinutes}} minutes</h5></div>
               </router-link>
@@ -30,7 +30,7 @@
           title: '',
           image: '',
           readyInMinutes: '',
-          spoonId: ''
+          spoonId: '',
         },
         query: ''
       }
@@ -54,6 +54,9 @@
       },
       setActiveRecipe() {
         this.$store.dispatch('setActiveRecipe', this.recipe)
+      },
+      setRecipeDetails(){
+        this.$store.dispatch('setRecipeDetails', this.recipe)
       }
     }
   }
@@ -68,11 +71,12 @@ img{
 
 @media only screen and (min-device-width:415px) {
 
-#background {
+.background {
   background-image: url("../assets/searchPage.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
+  /* background-repeat: repeat; */
   background-attachment: fixed;
+  display: block;
   color: white;
   height: 100%
 }
