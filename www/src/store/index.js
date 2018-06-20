@@ -256,7 +256,8 @@ export default new vuex.Store({
         //         })
         // },
         deleteFavorite ({ commit, dispatch }, id) {
-            api.delete('favorites/'+ id).then(res => {
+            api.delete('/favorites/'+ id)
+            .then(res => {
               dispatch('getFavorites')
             })
           }

@@ -5,7 +5,7 @@
       <br><br><br><br><br><br><br>
       <li v-for="fav in favorites">
         <router-link :to="{name: 'RecipeDetails', params:{spoonId: fav.spoonId}}">{{fav.title}}</router-link>
-        <button @click="deleteFavorite(fav.spoonId)">Delete</button>
+        <button @click="deleteFavorite(fav._id)">Delete</button>
       </li>
     </ul>
   </div>
