@@ -65,7 +65,8 @@ export default new vuex.Store({
         groceryList: [],
         searchHistory: [],
         favorites: [],
-        pantry: []
+        pantry: [],
+        calItems:[]
     
     },
     mutations: {
@@ -96,6 +97,9 @@ export default new vuex.Store({
             console.log(favorites)
             state.favorites = favorites
         },
+        setCalItems(state, calitems){
+            state.calItems = calitems
+        }
         
     },
 
