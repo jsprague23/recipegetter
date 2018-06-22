@@ -1,20 +1,21 @@
 <template>
   <div class="groceryList">
-    <div><h1>Test</h1></div>
-      <ul id="example-1">
-          <!-- <li v-for="item in items">
-            {{ item.message }}
-          </li> -->
-        </ul>
-        
+    <div>
+      <h1>Test</h1>
+    </div>
+    <ul id="example-1">
+      <li v-for="grocery in groceryList">
+          <router-link :to="{name: 'RecipeDetails', params:{spoonId: fav.spoonId}}">{{grocery.title}}</router-link>
+          </li>
+    </ul>
+
   </div>
 </template>
 
 <script>
   export default {
     name: 'groceryList',
-      data() {
-      items:[]
+    data() {      
       return {
 
       }
@@ -23,7 +24,7 @@
       this.$store.dispatch("getGroceryList")
     },
     computed: {
-      GroceryList(){
+      GroceryList() {
         return $this.store.state.groceryList
       }
     },
