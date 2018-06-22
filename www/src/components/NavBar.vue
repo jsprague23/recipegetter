@@ -18,10 +18,15 @@
           <li class="nav-item">
             <router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse" :to="{name: 'ProfilePage'}">Profile</router-link>
           </li>
+          <li class="nav-item">
+          <router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse" :to="{name:'SearchResults'}">
+              search by ingredients
+            </router-link>
+          </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" @submit.prevent="getSearchResults">
           <input type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
-          <button class="button" data-toggle="collapse" data-target=".navbar-collapse" @click="getSearchResults">Search All Recipes</button>
+          <button class="button" data-toggle="collapse" data-target=".navbar-collapse" type="submit">Search All Recipes</button>
         </form>
         <div class="form-inline my-2 my-lg-0" v-if="!user._id">
           <router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse" :to="{name: 'Auth'}">login/register</router-link>
