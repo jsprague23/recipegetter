@@ -3,16 +3,25 @@
     <div class="row d-flex justify-content-center">
       <img class="logo1 animateBar1 animated rollIn" src="../../foodLogo.png" alt="">
       </div>
-      <div class="row">
+      <div class="row -flex justify-content-center">
         <div class="Home">
+          <div class="desc container">
+          <h1>With FoodyMcFoodFace you'll never have to think of what to make again!</h1>
+        </div>
           <div class="search container">
-          <h3>What do you have in your pantry? Search bellow to find out what you can make!</h3>
+          <h3 class="pant">What's in your Pantry?</h3>
           <router-link :to="{name:'SearchResults'}">
-              <button class="button">Go To Search Field </button>
+              <button class="btn-lg">Go To Search Field </button>
             </router-link>
         </div>
-          <h1>Description of app here:</h1>
-          <h3>- Different search features available -</h3>
+         <div class="desc">
+           <h3>What do we offer?</h3>
+           <ul>
+             <li>A larg list of foods</li>
+             <li>Serch for any resipe that you have the ingredients for</li>
+             <li></li>
+           </ul>
+         </div>
           <h3>- Where the info is pulled and what is available in the search -</h3>
           <h3>- Extra stuf maybe, Idk, these will be longer when they contain info. -</h3>
         </div>
@@ -46,6 +55,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .row{
+    text-align: center
+  }
    @media only screen and (min-device-width:415px ){
 
   #background {
@@ -54,7 +66,7 @@
     background-repeat: no-repeat;
     background-attachment:fixed;
     color: white;
-    height: 93.4vh
+    height: 200vh
   }
 }
 #background {
@@ -73,37 +85,26 @@
   margin-top: 9rem
 }
 
-  .button {
+  .btn-lg {
+    height: 6rem;
+    width: 12rem;
     background-color: #4CAF50;
-    /* Green */
-    border: none;
+    border-radius: 3rem;
+    border:rgba(255, 255, 255, 0.274) .5rem solid;
     color: white;
-    padding: 2px 4px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
+    margin-bottom: 3rem;
+    margin-top: .5rem;
     -webkit-transition-duration: 0.4s;
     /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
   }
 
+
   .button:hover {
     background-color: #4CAF50;
     /* Green */
     color: white;
-  }
-
-  .button1 {
-    background-color: white;
-    color: black;
-    border: 2px solid rgb(109, 179, 111);
-  }
-
-  h1,
-  h2 {
-    font-weight: normal;
   }
 
   ul {
@@ -119,11 +120,19 @@
   a {
     color: #42b983;
   }
+  .pant{
+    font-size: 3rem
+  }
   .col{
     padding:0
   }
+  .desc{
+    background: #22222262;
+    margin-top:5rem;
+    margin-bottom: 5rem 
+  }
   .search{
-    background: #646464a4;
+    background: #22222262;
     margin-top:5rem;
     margin-bottom: 5rem 
   }
