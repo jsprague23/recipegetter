@@ -10,7 +10,8 @@ let schema = new Schema({
   email: { type: String, required: true, unique: true},
   password: { type: String, required: true },
   created: { type: Number, required: true, default: Date.now() },
-  favorites: [{type: ObjectId, ref: 'Recipe'}]
+  favorites: [{type: ObjectId, ref: 'Recipe'}],
+  
 })
 
 schema.statics.generateHash = function (password) {
