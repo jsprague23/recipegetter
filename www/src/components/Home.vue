@@ -66,7 +66,7 @@
     background-repeat: no-repeat;
     background-attachment:fixed;
     color: white;
-    height: 200vh
+    height: 100%
   }
 }
 #background {
