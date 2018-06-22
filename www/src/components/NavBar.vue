@@ -61,11 +61,7 @@
 </script>
 
 <style>
-  .animateBar{
-  -vendor-animation-duration: 5s;
-  -vendor-animation-delay: 10s;
-  -vendor-animation-iteration-count: infinite;
-}
+
 /* The navigation bar */
 .navbar {
     overflow: hidden;
