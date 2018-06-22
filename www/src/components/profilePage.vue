@@ -8,11 +8,13 @@
           <favorites></favorites>
         </div>
         <div class="col-3"></div>
+        <groceryList></groceryList>
       </div>
     </div>
   </template>
 
 <script>
+  import groceryList from './GroceryList'
   import Favorites from './Favorites'
   export default {
     name: 'ProfilePage',
@@ -22,7 +24,8 @@
       }
     },
     components: {
-      Favorites
+      Favorites,
+      groceryList
     },
     computed: {},
     methods: {}

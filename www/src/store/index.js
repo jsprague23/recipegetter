@@ -95,7 +95,7 @@ export default new vuex.Store({
         setFavorites(state, favorites){
             console.log(favorites)
             state.favorites = favorites
-        }
+        },
         
     },
 
@@ -220,7 +220,7 @@ export default new vuex.Store({
                 })
         },
         postGrocery({ commit, dispatch }, foodItem) {
-            api.post('/thepantry', foodItem)
+            api.post('/groceryList', foodItem)
                 .then(res => {
                     dispatch("getGroceries")
                 })
@@ -228,12 +228,12 @@ export default new vuex.Store({
                     alert("err")
                 })
         },
-        getGroceries({ commit, dispatch }, user) {
-            api.get('/myPantry/' + user)
-                .then(res => {
-                    commit("setPantry", res.data)
-                })
-        },
+        // getGroceries({ commit, dispatch }, user) {
+        //     api.get('/myPantry/' + user)
+        //         .then(res => {
+        //             commit("setPantry", res.data)
+        //         })
+        // },
         addToFavorites({commit, dispatch, state}, recipe){
             api.post('/favorites', recipe)
             .then(res=>{
@@ -245,6 +245,19 @@ export default new vuex.Store({
             .then(res=>{
                 console.log(res)
                 commit ('setFavorites', res.data.favorites)
+            })
+        },
+        addToGroceryList({commit, dispatch, state}, groceryItem){
+            api.post('/groceryList', groceryItem)
+            .then(res=>{
+            commit ('setGroceryList', res.data)
+            })
+        },
+        getGroceryList({commit,dispatch, state}){
+            api.get('/groceryList')
+            .then(res=>{
+                console.log(res)
+                commit('setGroceryList',res.data.groceryList)
             })
         },
         // deleteFavorite({ commit, dispatch }) {
