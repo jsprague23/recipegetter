@@ -139,6 +139,6 @@
   .animateBar1{
   animation-duration: 1s;
   animation-iteration-count: unset;
-  animation-delay: 0s
+  animation-delay: .4s
   }
 </style>
