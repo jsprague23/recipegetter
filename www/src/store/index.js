@@ -83,7 +83,7 @@ export default new vuex.Store({
             state.groceryList = groceryList
         },
         setActiveRecipe(state, recipe) {
-            state.recipe = this.recipe
+            state.recipe = recipe
         },
         setPantry(state, pantry) {
             state.pantry = pantry
@@ -135,7 +135,7 @@ export default new vuex.Store({
         //         })
         // },
         getSearchResults({dispatch, commit}, query) {
-            genRecipeSearch.get(query + '&number=3')
+            genRecipeSearch.get(query + '&number=6')
             .then(res=>{
                 var recipes = res.data.results.map(recipe => {
                     return {
@@ -168,21 +168,22 @@ export default new vuex.Store({
                 commit('setActiveRecipe', recipe)
             })
         },
-        // getRecipeDetails({dispatch, commit}, id){
-        //     recipeDetailsSearch.get(id + '/information')
-        //     .then(res=>{
-        //         console.log(res)
-        //         var recipe = {}
-        //         recipe.title = res.data.title,
-        //         recipe.image = res.data.image,
-        //         recipe.readyInMinutes = res.data.readyInMinutes,
-        //         recipe.sourceUrl = res.data.sourceUrl,
-        //         recipe.instructions = res.data.instructions ,
-        //         recipe.ingredients = res.data.extendedIngredients,
-        //         recipe.spoonId = res.data.id
-        //         commit('setActiveRecipe', recipe)
-        //     })
-        // },
+        getRecipeDetails({dispatch, commit}, id){
+            recipeDetailsSearch.get(id + '/information')
+            .then(res=>{
+                console.log(res)
+                var recipe = {}
+                recipe.title = res.data.title,
+                recipe.image = res.data.image,
+                recipe.readyInMinutes = res.data.readyInMinutes,
+                recipe.sourceUrl = res.data.sourceUrl,
+                recipe.instructions = res.data.instructions ,
+                recipe.ingredients = res.data.extendedIngredients,
+                recipe.spoonId = res.data.id
+                console.log(recipe)
+                commit('setActiveRecipe', recipe)
+            })
+        },
     
         //AUTH STUFF
         login({ commit, dispatch }, loginCredentials) {
@@ -239,9 +240,10 @@ export default new vuex.Store({
             commit ('setFavorites', res.data)
             })
         },
-        getFavorites({commit, dispatch, state}, recipe){
-            api.get('/favorites', recipe)
+        getFavorites({commit, dispatch, state}){
+            api.get('/favorites')
             .then(res=>{
+                console.log(res)
                 commit ('setFavorites', res.data.favorites)
             })
         },
@@ -254,7 +256,8 @@ export default new vuex.Store({
         //         })
         // },
         deleteFavorite ({ commit, dispatch }, id) {
-            api.delete('favorites/'+ id).then(res => {
+            api.delete('/favorites/'+ id)
+            .then(res => {
               dispatch('getFavorites')
             })
           }

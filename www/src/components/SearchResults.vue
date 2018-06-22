@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-3">
       </div>
-      <div class="col-6">
+      <div class="col-6 mt-5 pt-5">
 
         <IngredientSearchResults></IngredientSearchResults>
       </div>

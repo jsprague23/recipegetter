@@ -41,6 +41,7 @@
     margin-left: auto;
     margin-right: auto;
     /* object-fit:cover; */
+    height: 100%
   }
 
 
