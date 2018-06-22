@@ -5,8 +5,8 @@
       </div>
       <div class="row -flex justify-content-center">
         <div class="Home">
-          <div class="desc container">
-          <h1>With FoodyMcFoodFace you'll never have to think of what to make again!</h1>
+          <div class="desc container-fluid">
+          <h1>"WITH FOODYMCFOODFACE YOU'LL NEVER HAVE TO THINK OF WHAT TO MAKE AGAIN"</h1>
         </div>
           <div class="search container">
           <h3 class="pant">What's in your Pantry?</h3>
@@ -14,12 +14,13 @@
               <button class="btn-lg">Go To Search Field </button>
             </router-link>
         </div>
-         <div class="desc">
-           <h3>What do we offer?</h3>
+         <div class="desclist container-fluid">
+           <h1><b>What do we offer?</b></h1>
            <ul>
-             <li>A larg list of foods</li>
+             <li>A large list of foods</li>
              <li>Serch for any resipe that you have the ingredients for</li>
-             <li></li>
+             <li>You can also save resipes that you love</li>
+             <li>Make a grocery list so you can remember what you need to make the food you love</li>
            </ul>
          </div>
           <h3>- Where the info is pulled and what is available in the search -</h3>
@@ -56,6 +57,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .row{
+  font-family: 'Jura', sans-serif;
     text-align: center
   }
    @media only screen and (min-device-width:415px ){
@@ -66,8 +68,17 @@
     background-repeat: no-repeat;
     background-attachment:fixed;
     color: white;
-    height: 100%
   }
+ 
+.desclist{
+  background: #ffffff83;
+    margin-top:5rem;
+    margin-bottom: 5rem; 
+    font-size: 2rem;
+    border: #e5e8d8 solid .5rem;
+    color: rgb(0, 0, 0);
+    font-weight: 650;
+}
 }
 #background {
     background-image: url("../assets/homeBackground.jpg");
@@ -75,6 +86,17 @@
     background-repeat: no-repeat;
     background-attachment:fixed;
     color: white;
+    width: 100%;
+   
+}
+.desclist{
+  background: #ffffff83;
+    margin-top:5rem;
+    margin-bottom: 5rem; 
+    font-size: 1.5rem;
+    border: #e5e8d8 solid .5rem;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
 }
 .logo1{
   border-radius: 50%;
@@ -86,6 +108,7 @@
 }
 
   .btn-lg {
+    font-family: 'Jura', sans-serif;
     height: 6rem;
     width: 12rem;
     background-color: #4CAF50;
@@ -100,41 +123,40 @@
     cursor: pointer;
   }
 
-
-  .button:hover {
+  .button{
     background-color: #4CAF50;
     /* Green */
     color: white;
   }
 
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
   li {
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 15px;
   }
 
   a {
     color: #42b983;
   }
   .pant{
-    font-size: 3rem
-  }
-  .col{
-    padding:0
+    font-size: 3rem;
+    margin-top: 1rem;
   }
   .desc{
-    background: #22222262;
+    background: #ffffff62;
     margin-top:5rem;
-    margin-bottom: 5rem 
+    margin-bottom: 5rem; 
+    border: #e5e8d8 solid .5rem;
+    color: black;
+    font-size: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
   }
   .search{
     background: #22222262;
     margin-top:5rem;
-    margin-bottom: 5rem 
+    margin-bottom: 5rem;
+    border: #585858 solid .5rem;
   }
   .animateBar1{
   animation-duration: 1s;
