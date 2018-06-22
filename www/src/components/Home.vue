@@ -137,8 +137,8 @@
     margin-bottom: 5rem 
   }
   .animateBar1{
-    -vendor-animation-duration: 5s;
-  -vendor-animation-delay: 4s;
-  -vendor-animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-iteration-count: unset;
+  animation-delay: .4s
   }
 </style>
