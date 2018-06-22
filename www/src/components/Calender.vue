@@ -180,7 +180,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .popover-header {
   text-align: center;
   padding-bottom: 3px;
