@@ -55,7 +55,7 @@
         </a>
       </div>
     </v-calendar>
-    <button @click="getCalItems">get</button>
+    
   </div>
 </template>
 
@@ -63,12 +63,7 @@
   const color = '#ff8080';
   // var todos = this.calItems
   const todos = [
-    {
-      id: 1,
-      description: 'Take Noah to basketball practice.',
-      isComplete: false,
-      dates: new Date(2018, 5, 20),
-    }
+ 
   ];
 
   export default {
