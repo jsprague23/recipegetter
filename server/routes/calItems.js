@@ -3,7 +3,7 @@ var CalItems = require('../models/calItem')
 
 //GET ALL
 router.get('/api/cal/:id', (req, res, next) => {
-  CalItems.find({userId: req.params.id})
+  CalItems.find({UserId: req.params.id})
   .then(cal => {
     res.send(cal)
   })
@@ -16,9 +16,8 @@ router.get('/api/cal/:id', (req, res, next) => {
 
 //EDIT
   router.put('/api/cal/:id',   (req,res)=>{
-    CalItems.find({_id: req.params.id})
+    CalItems.findByIdAndUpdate(req.params.id, req.body)
     .then(function (cal) {
-      cal.push(req.body)
       res.send(cal)
     })
     .catch(err=>{
