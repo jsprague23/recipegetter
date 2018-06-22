@@ -2,6 +2,7 @@
   <div class="favorites">
     <h1>My favorites</h1>
     <ul>
+      <br><br><br><br><br><br><br>
       <li v-for="fav in favorites">
         <router-link :to="{name: 'RecipeDetails', params:{spoonId: fav.spoonId}}">{{fav.title}}</router-link>
         <button @click="deleteFavorite(fav._id)">Delete</button>
@@ -20,6 +21,7 @@
     },
     mounted() {
       this.$store.dispatch("getFavorites")
+      
     },
     computed: {
       favorites() {
