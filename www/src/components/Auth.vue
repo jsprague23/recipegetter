@@ -59,6 +59,7 @@ this.$store.dispatch('authenticate')
       },
       userRegister(){
         this.$store.dispatch('register', this.newUser)
+        this.$store.dispatch('login', this.newUser)
       },
       regLog(){ //toggle between register and login
         this.logister = !this.logister

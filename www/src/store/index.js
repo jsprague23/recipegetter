@@ -65,7 +65,8 @@ export default new vuex.Store({
         groceryList: [],
         searchHistory: [],
         favorites: [],
-        pantry: []
+        pantry: [],
+        calItems:[]
     
     },
     mutations: {
@@ -95,6 +96,9 @@ export default new vuex.Store({
         setFavorites(state, favorites){
             console.log(favorites)
             state.favorites = favorites
+        },
+        setCalItems(state, calitems){
+            state.calItems = calitems
         }
         
     },
@@ -220,7 +224,7 @@ export default new vuex.Store({
                 })
         },
         postGrocery({ commit, dispatch }, foodItem) {
-            api.post('/thepantry', foodItem)
+            api.post('/groceryList', foodItem)
                 .then(res => {
                     dispatch("getGroceries")
                 })
@@ -228,12 +232,12 @@ export default new vuex.Store({
                     alert("err")
                 })
         },
-        getGroceries({ commit, dispatch }, user) {
-            api.get('/myPantry/' + user)
-                .then(res => {
-                    commit("setPantry", res.data)
-                })
-        },
+        // getGroceries({ commit, dispatch }, user) {
+        //     api.get('/myPantry/' + user)
+        //         .then(res => {
+        //             commit("setPantry", res.data)
+        //         })
+        // },
         addToFavorites({commit, dispatch, state}, recipe){
             api.post('/favorites', recipe)
             .then(res=>{
@@ -245,6 +249,19 @@ export default new vuex.Store({
             .then(res=>{
                 console.log(res)
                 commit ('setFavorites', res.data.favorites)
+            })
+        },
+        addToGroceryList({commit, dispatch, state}, groceryItem){
+            api.post('/groceryList', groceryItem)
+            .then(res=>{
+            commit ('setGroceryList', res.data)
+            })
+        },
+        getGroceryList({commit,dispatch, state}){
+            api.get('/groceryList')
+            .then(res=>{
+                console.log(res)
+                commit('setGroceryList',res.data.groceryList)
             })
         },
         // deleteFavorite({ commit, dispatch }) {
@@ -260,6 +277,47 @@ export default new vuex.Store({
             .then(res => {
               dispatch('getFavorites')
             })
-          }
+          },
+                  // Calender Stuff +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        getCalItems({ commit, dispatch, state }, id) {
+            api.get('/api/cal/' + id)
+                .then(res => {
+                    console.log(res)
+                    commit('setCalItems', res.data)
+                })
+                .catch(res => {
+                    // alert("err")
+                })
+        },
+        addCalItem({ commit, dispatch,state }, newItem) {
+            api.post('/api/cal/', newItem)
+                .then(res => {
+                    console.log(res)
+                    dispatch('getCalItems', state.user._id)
+                })
+                .catch(res => {
+                    alert("err")
+                })
+        },
+        editCalItem({ commit, dispatch,state }, editItem) {
+            api.put('/api/cal/' + editItem._id, editItem)
+                .then(res => {
+                    console.log(res)
+                    dispatch('getCalItems', state.user._id)
+                })
+                .catch(res => {
+                    alert("err")
+                })
+        },
+        deleteCalItem({ commit, dispatch, state }, itemId) {
+            api.delete('/api/cal/' + itemId)
+                .then(res => {
+                    console.log(res)
+                    dispatch('getCalItems', state.user._id)
+                })
+                .catch(res => {
+                    alert("err")
+                })
+        }
     }
 })
