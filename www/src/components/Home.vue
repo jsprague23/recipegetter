@@ -23,8 +23,12 @@
              <li>Make a grocery list so you can remember what you need to make the food you love</li>
            </ul>
          </div>
-          <h3>- Where the info is pulled and what is available in the search -</h3>
-          <h3>- Extra stuf maybe, Idk, these will be longer when they contain info. -</h3>
+          <ul class="footer">
+            <h3>Connect with us on:</h3>
+            <li>FaceBook</li>
+            <li>Twitter</li>
+            <li>LinkedIn</li>
+            </ul>
         </div>
       </div>      
     </div>
@@ -76,7 +80,7 @@
     margin-bottom: 5rem; 
     font-size: 2rem;
     border: #e5e8d8 solid .5rem;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-weight: 650;
 }
 }
@@ -85,8 +89,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment:fixed;
-    color: white;
-    width: 100%;
+    color: rgb(255, 255, 255);
    
 }
 .desclist{
@@ -162,5 +165,12 @@
   animation-duration: 1s;
   animation-iteration-count: unset;
   animation-delay: .4s
+  }
+  .footer{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: #e5e8d8;
+    color: black;
+    font-weight: 600;
   }
 </style>
