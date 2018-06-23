@@ -11,11 +11,14 @@
         <div class="card text-white bg-success mb-3" v-for="item in activeRecipe.ingredients">
           <button class="btn" @click="addToGroceryList">Add To Grocery List</button>{{item.amount}} {{item.unit}} {{item.name}}
         </div>
+          <div v-if="currentUser._id">
         <button class="btn btn-success" @click="addToFavorites">Favorite</button>
+        <!-- <button class="btn btn-success" @click="addToFavorites" disabled v-if="currentUser.favorites.includes(activeRecipe._id)">Favorite</button> -->
         <form @submit.prevent="addCalItem">
           <input type="date" v-model="dates">
           <button class="btn btn-info" type="submit">add to cal</button>
         </form>
+        </div>
       </div>
       <div class="col-3"></div>
     </div>
@@ -38,6 +41,7 @@
       this.$store.dispatch('getRecipeDetails', this.$route.params.spoonId)
       this.newItem.UserId = this.currentUser._id
     },
+     
     data() {
       return {
 
@@ -64,9 +68,11 @@
         this.newItem.description = this.activeRecipe.title
         console.log(dateArr)
         this.$store.dispatch('addCalItem', this.newItem)
+        alert("Added to Calendar")
       },
       addToFavorites() {
         this.$store.dispatch('addToFavorites', this.activeRecipe)
+        alert("Added to Favorites")
       },
       addToGroceryList() {
         this.$store.dispatch('addToGroceryList')
