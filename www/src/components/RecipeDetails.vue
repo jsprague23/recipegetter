@@ -9,7 +9,7 @@
         <div class="card text-white bg-success mb-3">{{activeRecipe.instructions}}</div>
         <h3 class="titles">Ingredients</h3>
         <div class="card text-white bg-success mb-3" v-for="item in activeRecipe.ingredients">
-          <button class="btn" @click="addToGroceryList">Add To Grocery List</button>{{item.amount}} {{item.unit}} {{item.name}}
+          <button class="btn" @click="addToGroceryList(item)">Add To Grocery List</button>{{item.amount}} {{item.unit}} {{item.name}}
         </div>
         <button class="btn btn-success" @click="addToFavorites">Favorite</button>
       </div>
@@ -47,8 +47,8 @@
       addToFavorites() {
         this.$store.dispatch('addToFavorites', this.activeRecipe)
       },
-      addToGroceryList(){
-        this.$store.dispatch('addToGroceryList')
+      addToGroceryList(item){
+        this.$store.dispatch('addToGroceryList',item)
       }
     }
 

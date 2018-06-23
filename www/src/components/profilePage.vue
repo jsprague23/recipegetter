@@ -8,7 +8,7 @@
           <favorites></favorites>
         </div>
         <div class="col-3"></div>
-        <groceryList></groceryList>
+        <!-- <router-link :to="{name: 'GroceryList', params:{spoonId: fav.spoonId}}">Grocery List</router-link> -->
       </div>
     </div>
   </template>

@@ -11,9 +11,9 @@ var itemSchema = new Schema({
 })
 var grocList = new Schema({
 title:{type: String, required: true},
-userId: {type: ObjectId, required:true},
+userId: {type: ObjectId, ref: 'User', required:true},
 item: [itemSchema],
-date: {type: String, required: true, default: new Date().getDate}
+date: {type: String, required: true, default: Date.now()}
 })
 
 module.exports = mongoose.model(schemaName, grocList)

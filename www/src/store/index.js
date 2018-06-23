@@ -186,6 +186,7 @@ export default new vuex.Store({
                 recipe.spoonId = res.data.id
                 console.log(recipe)
                 commit('setActiveRecipe', recipe)
+                
             })
         },
     
@@ -224,7 +225,7 @@ export default new vuex.Store({
                 })
         },
         postGrocery({ commit, dispatch }, foodItem) {
-            api.post('/groceryList', foodItem)
+            api.post('/api/grocLists', foodItem)
                 .then(res => {
                     dispatch("getGroceries")
                 })
@@ -251,14 +252,14 @@ export default new vuex.Store({
                 commit ('setFavorites', res.data.favorites)
             })
         },
-        addToGroceryList({commit, dispatch, state}, groceryItem){
-            api.post('/groceryList', groceryItem)
+        addToGroceryList({commit, dispatch, state}, groceryItems){
+            api.post('/api/grocLists', groceryItems)
             .then(res=>{
             commit ('setGroceryList', res.data)
             })
         },
         getGroceryList({commit,dispatch, state}){
-            api.get('/groceryList')
+            api.get('/api/grocLists')
             .then(res=>{
                 console.log(res)
                 commit('setGroceryList',res.data.groceryList)
