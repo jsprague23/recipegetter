@@ -1,13 +1,11 @@
 <template>
     <div class="container-fluid" id="background">
       <div class="row">
-        <div class="col-3">
+        <div class="col">
+          <Calender></Calender>
         </div>
-        <div class="col-6">
-  
-          <favorites></favorites>
-        </div>
-        <div class="col-3"></div>
+        <div class="col"></div>
+        <favorites></favorites>
         <groceryList></groceryList>
       </div>
     </div>
@@ -16,6 +14,7 @@
 <script>
   import groceryList from './GroceryList'
   import Favorites from './Favorites'
+  import Calender from './Calender'
   export default {
     name: 'ProfilePage',
     data() {
@@ -25,7 +24,8 @@
     },
     components: {
       Favorites,
-      groceryList
+      groceryList,
+      Calender
     },
     computed: {},
     methods: {}
@@ -33,18 +33,13 @@
 
 </script>
 
-<style>
+<style scoped>
   #background {
     background-image: url("../assets/profilePage.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* background-size: contain; */
-    /* display: block; */
-    margin-left: auto;
-    margin-right: auto;
-    /* object-fit:cover; */
-    height: 100%
+    height: 100vh;
   }
 
 
