@@ -20,7 +20,7 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
+          <input class="input" type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
           <button class="button" data-toggle="collapse" data-target=".navbar-collapse" @click="getSearchResults">Search All Recipes</button>
         </form>
         <div class="form-inline my-2 my-lg-0" v-if="!user._id">
