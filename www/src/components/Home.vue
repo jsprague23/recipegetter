@@ -72,6 +72,7 @@
     background-repeat: no-repeat;
     background-attachment:fixed;
     color: white;
+    height: 100%;
   }
  
 .desclist{

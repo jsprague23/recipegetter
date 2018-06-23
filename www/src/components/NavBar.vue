@@ -25,7 +25,7 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" @submit.prevent="getSearchResults">
-          <input type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
+          <input class="input" type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
           <button class="button" data-toggle="collapse" data-target=".navbar-collapse" type="submit">Search All Recipes</button>
         </form>
         <div class="form-inline my-2 my-lg-0" v-if="!user._id">
@@ -33,7 +33,7 @@
         </div>
         <div class="user form-inline my-2 my-lg-0" v-else>{{user.userName}}
         </div>
-        <button v-if="user._id" @click="logout">Log Out</button>
+        <button class="button" v-if="user._id" @click="logout">Log Out</button>
       </div>
     </nav>
   </div>
@@ -69,6 +69,8 @@
 
 /* The navigation bar */
 .navbar {
+  font-family: 'Jura', sans-serif;
+  font-weight: bold;
     overflow: hidden;
     background-color: #333;
     position: fixed; /* Set the navbar to fixed position */
@@ -109,7 +111,18 @@
   margin-right: 1rem
 }
 .user{
-  margin-left: 3rem;
+  margin-left: 1.5rem;
   margin-right: 1rem
+}
+.button{
+  margin-left: .5rem;
+  background-color: rgb(153, 206, 122);
+  border: rgb(133, 133, 133) solid .1rem;
+}
+.input{
+  width: 15rem;
+  height: 2.4rem;
+  border: rgb(133, 133, 133) solid .1rem;
+  background: #cff3ad;
 }
 </style>
