@@ -50,8 +50,10 @@ router.post('/api/grocLists/', (req, res) => {
 
 //DELETE
 router.delete('/api/grocLists/:id', (req, res) => {
-  GrocLists.findByIdAndRemove(req.params.id)
-  .then(() => {
+  GrocLists.update({_id:req.session.uid}, {$pull: {"lists": req.params.id}})
+  .then(user => {
+    console.log(user.lists)
+    console.log("deleted")
     res.send("Deleted!")
   })
   .catch(err => {

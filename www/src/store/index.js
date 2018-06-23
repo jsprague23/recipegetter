@@ -294,6 +294,12 @@ export default new vuex.Store({
               dispatch('getFavorites')
             })
           },
+          deleteList ({ commit, dispatch }, id) {
+            api.delete('/grocLists/'+ id)
+            .then(res => {
+              dispatch('getGroceryList')
+            })
+          },
                   // Calender Stuff +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         getCalItems({ commit, dispatch, state }, id) {
             api.get('/api/cal/' + id)

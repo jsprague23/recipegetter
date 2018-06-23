@@ -1,7 +1,6 @@
 <template>
   <div class="groceryList mt-5 pt-5">
-    <div><br><br><br><br><br><br>
-      <h1>Test</h1>
+    <div><br><br><br><br><br><br>      
       <form @submit.prevent="addGroceryList">
         <input type="text" v-model="newTitle">
       <button type="submit">Create New</button>
@@ -11,8 +10,8 @@
     </div>   
     <div v-for="list in GroceryList">
       {{list.title}}
-      <button @click="setActiveGroceryList(list)">Set Active list</button>
-      
+      <button @click="setActiveGroceryList(list)">Add to this list</button>
+      <button @click="deleteList(list._id)">Delete</button>
     </div> 
     <!-- <div v-for="item in ActiveGroceryList"> -->
       
@@ -50,6 +49,9 @@
       },
       getGroceryList(){
         this.$store.dispatch("getGroceryList")
+      },
+      deleteList(id){
+        this.$store.dispatch('deleteList',id)
       }
     }
   }
