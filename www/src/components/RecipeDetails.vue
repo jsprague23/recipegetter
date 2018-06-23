@@ -12,6 +12,10 @@
           <button class="btn" @click="addToGroceryList">Add To Grocery List</button>{{item.amount}} {{item.unit}} {{item.name}}
         </div>
         <button class="btn btn-success" @click="addToFavorites">Favorite</button>
+        <form @submit.prevent="addCalItem">
+          <input type="date" v-model="dates">
+          <button class="btn btn-info" type="submit">add to cal</button>
+        </form>
       </div>
       <div class="col-3"></div>
     </div>
@@ -32,22 +36,39 @@
     mounted() {
       // console.log(this.$route.params.spoonId)
       this.$store.dispatch('getRecipeDetails', this.$route.params.spoonId)
+      this.newItem.UserId = this.currentUser._id
     },
     data() {
       return {
 
+        dates: new Date(),
+        newItem: {
+          description: 'New todo',
+          isComplete: false,
+          UserId: ''
+        }
       }
     },
     computed: {
       activeRecipe() {
         return this.$store.state.recipe
+      },
+      currentUser() {
+        return this.$store.state.user
       }
     },
     methods: {
+      addCalItem() {
+        var dateArr = this.dates.split("-")
+        this.newItem.dates = new Date(Number(dateArr[0]), Number(dateArr[1])-1, Number(dateArr[2]))
+        this.newItem.description = this.activeRecipe.title
+        console.log(dateArr)
+        this.$store.dispatch('addCalItem', this.newItem)
+      },
       addToFavorites() {
         this.$store.dispatch('addToFavorites', this.activeRecipe)
       },
-      addToGroceryList(){
+      addToGroceryList() {
         this.$store.dispatch('addToGroceryList')
       }
     }
@@ -72,5 +93,4 @@
     font-weight: bold;
     font-size: 2em;
   }
-
 </style>
