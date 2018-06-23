@@ -1,6 +1,6 @@
 <template>
-  <div class=" card RecipeDetails container-fluid background">
-    <div class="row">
+  <div class=" card RecipeDetails container-fluid background mt-5">
+    <div class="row mt-5">
       <div class="col-3"></div>
       <div class="card text-white bg-warning mb-3 col-6">
         <h1>{{activeRecipe.title}}</h1>
