@@ -74,7 +74,7 @@ img{
 .background {
   background-image: url("../assets/searchPage.jpg");
   background-size: cover;
-  /* background-repeat: repeat; */
+  background-repeat: repeat;
   background-attachment: fixed;
   display: block;
   color: white;
