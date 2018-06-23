@@ -53,7 +53,13 @@
 
 </script>
 
-<style>
+<style scoped>
+  #background{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    height: 100vh;
+  }
   .titles {
     font-weight: bold;
     color: pink;

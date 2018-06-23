@@ -63,7 +63,7 @@
 
 </script>
 
-<style>
+<style scoped>
 img{
   width: 400px;
   
@@ -78,7 +78,7 @@ img{
   background-attachment: fixed;
   display: block;
   color: white;
-  height: 100%
+  height: 100%;
 }
 }
 
