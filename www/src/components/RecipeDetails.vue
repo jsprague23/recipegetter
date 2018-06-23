@@ -17,15 +17,12 @@
         <div class="card text-white bg-success mb-3">{{activeRecipe.instructions}}</div>
         <h3 class="titles">Ingredients</h3>
         <div class="card text-white bg-success mb-3" v-for="item in activeRecipe.ingredients">
-          <button class="btn" @click="addToGroceryList(item)">Add To Grocery List</button>{{item.amount}} {{item.unit}} {{item.name}}
+          <button class="btn" @click="addToGroceryList(item)" v-if="activeGroceryList._id">Add To Grocery List</button>{{item.amount}} {{item.unit}} {{item.name}}
         </div>
       </div>
       <div class="col-3"></div>
     </div>
   </div>
-
-
-
 
 </template>
 
@@ -59,6 +56,9 @@
       },
       currentUser() {
         return this.$store.state.user
+      },
+      activeGroceryList(){
+        return this.$store.state.activeGroceryList
       }
     },
     methods: {
@@ -75,6 +75,9 @@
         alert("Added to Favorites")
       },
       addToGroceryList(item){
+        if(!this.activeGroceryList._id){
+          return console.log("error you must select a grocery list")
+        }
         this.$store.dispatch('addToGroceryList',item)
       }
     }
