@@ -1,8 +1,10 @@
 <template>
   <div class="NavBar">
+    
     <nav class="navbar navbar-expand-lg navbar-light">
+      
       <img class="logo" src="../../foodLogo.png" alt="">
-      <a class="navbar-brand" href="#">FoodyMcFoodFace</a>
+      <div class="navbar-brand" >FoodyMcFoodFace</div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,6 +20,11 @@
           <li class="nav-item">
             <router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse" :to="{name: 'ProfilePage'}">Profile</router-link>
           </li>
+          <li class="nav-item">
+          <router-link class="nav-link" :to="{name:'SearchResults'}" data-toggle="collapse" data-target=".navbar-collapse">
+              Go To Search Field 
+            </router-link>
+            </li>
         </ul>
         <form @submit.prevent="getSearchResults" class="form-inline my-2 my-lg-0">
           <input class="input" type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
