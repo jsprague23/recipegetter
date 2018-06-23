@@ -5,19 +5,19 @@
       <div class="card text-white bg-warning mb-3 col-6">
         <h1>{{activeRecipe.title}}</h1>
         <img class="card-img-top" :src="activeRecipe.image">
+        <div v-if="currentUser._id">
+      <button class="btn btn-success" @click="addToFavorites">Favorite</button>
+      <!-- <button class="btn btn-success" @click="addToFavorites" disabled v-if="currentUser.favorites.includes(activeRecipe._id)">Favorite</button> -->
+      <form @submit.prevent="addCalItem">
+        <input type="date" v-model="dates">
+        <button class="btn btn-info" type="submit">add to cal</button>
+      </form>
+      </div>
         <h1 class="titles">Instructions</h1>
         <div class="card text-white bg-success mb-3">{{activeRecipe.instructions}}</div>
         <h3 class="titles">Ingredients</h3>
         <div class="card text-white bg-success mb-3" v-for="item in activeRecipe.ingredients">
           <button class="btn" @click="addToGroceryList">Add To Grocery List</button>{{item.amount}} {{item.unit}} {{item.name}}
-        </div>
-          <div v-if="currentUser._id">
-        <button class="btn btn-success" @click="addToFavorites">Favorite</button>
-        <!-- <button class="btn btn-success" @click="addToFavorites" disabled v-if="currentUser.favorites.includes(activeRecipe._id)">Favorite</button> -->
-        <form @submit.prevent="addCalItem">
-          <input type="date" v-model="dates">
-          <button class="btn btn-info" type="submit">add to cal</button>
-        </form>
         </div>
       </div>
       <div class="col-3"></div>
