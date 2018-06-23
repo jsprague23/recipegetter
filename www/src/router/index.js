@@ -10,6 +10,7 @@ import GeneralSearchResults from '@/components/GeneralSearchResults'
 import Auth from '@/components/Auth'
 import Favorites from '@/components/Favorites'
 import Calender from '@/components/Calender'
+import GroceryList from '@/components/GroceryList'
 
 
 Vue.use(Router)
@@ -58,6 +59,11 @@ export default new Router({
       path: '/Calender',
       name:'Calender',
       component: Calender
+    },
+    {
+      path: '/GroceryList',
+      name:'GroceryList',
+      component: GroceryList
     }
   ]
 })

@@ -1,24 +1,26 @@
 <template>
-  <div class="groceryList">
+  <div class="groceryList mt-5 pt-5">
     <div>
       <h1>Test</h1>
-    </div>
-    <ul>
-      <li v-for="item in activeRecipe.ingredients">
-          {{item.amount}} {{item.unit}} {{item.name}}
-          
-      </li>
-    </ul>
+      <form @submit.prevent="addGroceryList">
+        <input type="text" v-model="newTitle">
+      <button type="submit">Create New</button>
+      </form>
+      <button @click="getGroceryList">Get</button>
+    </div>   
+    <div v-for="list in GroceryList">
+      {{list.title}}
+    </div> 
 
   </div>
 </template>
 
 <script>
   export default {
-    name: 'groceryList',
+    name: 'GroceryList',
     data() {      
       return {
-
+        newTitle: ""
       }
     },
     mounted() {
@@ -26,10 +28,17 @@
     },
     computed: {
       GroceryList() {
-        return $this.store.state.groceryList
+        return this.$store.state.groceryList
       }
     },
-    methods: {}
+    methods: {
+      addGroceryList(){
+        this.$store.dispatch("addGroceryList", this.newTitle)
+      },
+      getGroceryList(){
+        this.$store.dispatch("getGroceryList")
+      }
+    }
   }
 
 </script>

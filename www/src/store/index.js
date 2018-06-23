@@ -258,11 +258,19 @@ export default new vuex.Store({
             commit ('setGroceryList', res.data)
             })
         },
+        addGroceryList({commit, dispatch, state}, newTitle){
+            var newList = {title:newTitle,
+            userId:state.user._id}
+            api.post('/api/grocLists/', newList)
+            .then(res=>{
+                commit('setGroceryList', res.data)
+            })
+        },
         getGroceryList({commit,dispatch, state}){
             api.get('/api/grocLists/'+ state.user._id)
             .then(res=>{
                 console.log(res)
-                commit('setGroceryList',res.data.groceryList)
+                commit('setGroceryList',res.data)
             })
         },
         // deleteFavorite({ commit, dispatch }) {
