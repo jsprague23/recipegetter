@@ -2,8 +2,10 @@
   <div class="IngredientSearchResults">
     <h1>Search by Ingredients in your Pantry!</h1>
     <div>
-      <input type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
-      <button @click="getSearchResults">Search All Recipes</button>
+      <form @submit.prevent="getSearchResults">
+      <input type="text" v-model="query" placeholder="ex. fennel, flour, beans.">
+      <button type="submit">Search by Ingredients</button>
+      </form>
       <div>
         <div class="card">
           <div v-for="recipe in recipes">
