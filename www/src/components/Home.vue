@@ -17,10 +17,10 @@
          <div class="desclist container-fluid">
            <h1><b>What do we offer?</b></h1>
            <ul>
-             <li>A large list of foods</li>
-             <li>Serch for any resipe that you have the ingredients for</li>
-             <li>You can also save resipes that you love</li>
-             <li>Make a grocery list so you can remember what you need to make the food you love</li>
+             <li>A large list of foods.</li>
+             <li>Serch for any resipe that you have the ingredients for.</li>
+             <li>You can also save resipes that you love.</li>
+             <li>Make a grocery list so you can remember what you need to make the food you love.</li>
            </ul>
          </div>
           <ul class="footer">

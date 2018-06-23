@@ -76,6 +76,7 @@
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
+    box-shadow:#000000
 }
 
 /* Links inside the navbar */
@@ -100,7 +101,8 @@
 /* } */ 
 
   .navbar {
-    background-color: #e5e8d8
+    background-color: #e5e8d8;
+    
   }
 .logo{
   border-radius: 5rem;
@@ -120,8 +122,8 @@
   border: rgb(133, 133, 133) solid .1rem;
 }
 .input{
-  width: 15rem;
-  height: 2.4rem;
+  width: 14rem;
+  height: 2.3rem;
   border: rgb(133, 133, 133) solid .1rem;
   background: #cff3ad;
 }
