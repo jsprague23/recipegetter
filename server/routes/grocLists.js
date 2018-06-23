@@ -25,9 +25,12 @@ router.get('/api/grocLists/:id/list', (req, res, next) => {
 
 //EDIT
 router.put('/api/grocLists/:id', (req,res) => {
-  GrocLists.findByIdAndUpdate(req.params.id, req.body, {new:true})
+  GrocLists.findById(req.params.id)
   .then(grocLists => {
-    res.send(grocLists)
+    grocLists.items.push(req.body.originalString)
+    grocLists.save().then(() =>{
+      res.send(grocLists)
+    })
   })
   .catch(err => {
     res.status(400).send(err)

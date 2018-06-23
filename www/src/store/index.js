@@ -66,7 +66,8 @@ export default new vuex.Store({
         searchHistory: [],
         favorites: [],
         pantry: [],
-        calItems:[]
+        calItems:[],
+        activeGroceryList:{}
     
     },
     mutations: {
@@ -99,6 +100,9 @@ export default new vuex.Store({
         },
         setCalItems(state, calitems){
             state.calItems = calitems
+        },
+        setActiveGroceryList(state, List){
+            state.activeGroceryList = List
         }
         
     },
@@ -253,7 +257,7 @@ export default new vuex.Store({
             })
         },
         addToGroceryList({commit, dispatch, state}, groceryItems){
-            api.post('/api/grocLists', groceryItems)
+            api.put('/api/grocLists/'+state.activeGroceryList._id, groceryItems)
             .then(res=>{
             commit ('setGroceryList', res.data)
             })
@@ -273,6 +277,9 @@ export default new vuex.Store({
                 commit('setGroceryList',res.data)
             })
         },
+        setActiveGroceryList({commit, dispatch}, groceryList){
+            commit('setActiveGroceryList', groceryList)
+            },
         // deleteFavorite({ commit, dispatch }) {
         //     api.delete('/favorites/:id')
         //         .then(res => {

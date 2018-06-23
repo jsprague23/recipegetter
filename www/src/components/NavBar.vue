@@ -19,7 +19,7 @@
             <router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse" :to="{name: 'ProfilePage'}">Profile</router-link>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form @submit.prevent="getSearchResults" class="form-inline my-2 my-lg-0">
           <input class="input" type="text" v-model="query" placeholder="ex. burger, chicken, etc.">
           <button class="button" data-toggle="collapse" data-target=".navbar-collapse" @click="getSearchResults">Search All Recipes</button>
         </form>
