@@ -3,10 +3,11 @@
     <div>
       <h1>Test</h1>
     </div>
-    <ul id="example-1">
-      <li v-for="grocery in groceryList">
-          <router-link :to="{name: 'RecipeDetails', params:{spoonId: fav.spoonId}}">{{grocery.title}}</router-link>
-          </li>
+    <ul>
+      <li v-for="item in activeRecipe.ingredients">
+          {{item.amount}} {{item.unit}} {{item.name}}
+          
+      </li>
     </ul>
 
   </div>
