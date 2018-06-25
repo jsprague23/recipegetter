@@ -267,7 +267,8 @@ export default new vuex.Store({
             userId:state.user._id}
             api.post('/api/grocLists/', newList)
             .then(res=>{
-                commit('setGroceryList', res.data)
+                console.log(res)
+                commit('setGroceryList', res.data.items)
             })
         },
         getGroceryList({commit,dispatch, state}){
@@ -295,7 +296,7 @@ export default new vuex.Store({
             })
           },
           deleteList ({ commit, dispatch }, id) {
-            api.delete('/grocLists/'+ id)
+            api.delete('/api/grocLists/'+ id)
             .then(res => {
               dispatch('getGroceryList')
             })

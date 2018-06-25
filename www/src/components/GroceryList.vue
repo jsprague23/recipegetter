@@ -13,8 +13,8 @@
       <button @click="setActiveGroceryList(list)">Add to this list</button>
       <button @click="deleteList(list._id)">Delete</button>
     </div> 
-    <!-- <div v-for="item in ActiveGroceryList"> -->
-      
+    <!-- <div v-for="item in ActiveGroceryList.Items"> -->
+      <!-- hello -->
     <!-- </div> -->
 
   </div>
