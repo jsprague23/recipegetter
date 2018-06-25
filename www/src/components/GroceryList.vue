@@ -6,16 +6,17 @@
       <button type="submit">Create New</button>
       </form>
       <button @click="getGroceryList">Get</button>
-      {{ActiveGroceryList}}
+      
     </div>   
     <div v-for="list in GroceryList">
       {{list.title}}
       <button @click="setActiveGroceryList(list)">Add to this list</button>
       <button @click="deleteList(list._id)">Delete</button>
     </div> 
-    <!-- <div v-for="item in ActiveGroceryList.Items"> -->
-      <!-- hello -->
-    <!-- </div> -->
+    <h5>{{activeGroceryList.title}}</h5>
+    <div v-for="item in activeGroceryList.items">
+      {{item}}
+    </div>
 
   </div>
 </template>
@@ -35,13 +36,12 @@
       GroceryList() {
         return this.$store.state.groceryList
       },
-      ActiveGroceryList() {
-        return this.$store.state.ActiveGroceryList
+      activeGroceryList() {
+        return this.$store.state.activeGroceryList
       }
     },
     methods: {
       setActiveGroceryList(list){
-      
         this.$store.dispatch("setActiveGroceryList", list)
       },
       addGroceryList(){

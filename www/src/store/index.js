@@ -101,8 +101,9 @@ export default new vuex.Store({
         setCalItems(state, calitems){
             state.calItems = calitems
         },
-        setActiveGroceryList(state, List){
-            state.activeGroceryList = List
+        setActiveGroceryList(state, List2){
+            console.log(List2)
+            state.activeGroceryList = List2
         }
         
     },
@@ -279,6 +280,7 @@ export default new vuex.Store({
             })
         },
         setActiveGroceryList({commit, dispatch}, groceryList){
+            console.log(groceryList)
             commit('setActiveGroceryList', groceryList)
             },
         // deleteFavorite({ commit, dispatch }) {
