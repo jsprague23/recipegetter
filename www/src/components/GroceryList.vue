@@ -9,14 +9,19 @@
       
     </div>   
     <div v-for="list in GroceryList">
-      {{list.title}}
+      <h1 class="h2">
+        {{list.title}}
+      </h1>
       <button @click="setActiveGroceryList(list)">Add to this list</button>
       <button @click="deleteList(list._id)">Delete</button>
     </div> 
-    <h5>{{activeGroceryList.title}}</h5>
-    <div v-for="item in activeGroceryList.items">
-      {{item}}
-    </div>
+    <h2 class="h4">{{activeGroceryList.title}}</h2>
+    <ul>
+      <li v-for="item in activeGroceryList.items">
+        {{item}}
+      </li>
+
+    </ul>
 
   </div>
 </template>
