@@ -1,5 +1,5 @@
 <template>
-  <div class="groceryList mt-5 pt-5">
+  <div class="groceryList">
     <div><br><br><br><br><br><br>      
       <form @submit.prevent="addGroceryList">
         <input type="text" v-model="newTitle">
